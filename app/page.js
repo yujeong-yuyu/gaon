@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { MenuContext } from "./app/context/MenuContext";
+import { MenuContext } from "../app/context/MenuContext";
 
 import "./global.css";
 
