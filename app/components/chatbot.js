@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { FaChevronLeft } from "react-icons/fa";
-import { findResponse } from "/public/utils/chatMatcher";
+import { findResponse } from "../../public/utils/chatMatcher";
 import styles from "../styles/c-css/Chatbot.module.css";
 
 export default function ChatbotModal({ open, onClose }) {
