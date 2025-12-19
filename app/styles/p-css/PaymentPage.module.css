@@ -1,0 +1,503 @@
+/* 스크롤 컨테이너 계열은 전부 visible 보장 */
+.pay-page,
+.pay-wrap,
+.pay-grid {
+  overflow: visible;
+}
+
+/* sticky를 막는 애들 전부 해제 (있으면!) */
+.pay-page,
+.pay-wrap,
+.pay-grid,
+.pay-right {
+  transform: none;
+  filter: none;
+  contain: none;
+}
+
+
+.pay-wrap {
+  width: 100%;
+  margin: 0 auto;
+  background: #f9f9f9;
+  padding: 180px 20px 100px 20px;
+
+}
+
+.pay-container {
+  width: 100%;
+  max-width: 1300px;
+  height: 100%;
+  margin: 0 auto;
+  padding-top: var(--header-h, 0px);
+}
+
+.pay-head {
+  max-width: 1300px;
+  margin: 0 auto;
+  margin-bottom: 80px;
+  position: relative;
+}
+
+.pay-title {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  font-size: 35px;
+  font-weight: bold;
+  color: #2b2b2b;
+}
+
+.pay-line {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #f39535;
+}
+
+.pay-title span {
+  white-space: nowrap;
+}
+
+.pay-title .pay-line {
+  flex: 1;
+  height: 2px;
+  background: #f39535;
+  position: relative;
+}
+
+.pay-title .pay-line::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: #f39535;
+  border-radius: 50%;
+}
+
+/* ===== Layout ===== */
+.pay-grid {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  /* ✅ grid로 변경 */
+  grid-template-columns: 1fr 360px;
+  /* 좌측, 우측 폭 */
+  gap: 28px;
+  overflow: visible;
+  align-items: flex-start;
+}
+
+.pay-left {
+  flex: 1;
+  min-width: 0;
+  --gx: 24px;
+}
+
+.pay-right {
+  flex: 0 0 360px;
+}
+
+/* ===== Card ===== */
+.pay-card {
+  padding: 20px 0;
+  margin-bottom: 18px;
+  box-sizing: border-box;
+}
+
+.pay-card-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 30px;
+}
+
+.pay-card-title:first-child {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.pay-card-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+.pay-req-tip {
+  color: #f39535;
+  font-size: 18px;
+}
+
+.pay-req {
+  color: #f39535;
+  font-weight: 700;
+}
+
+/* ===== Items ===== */
+.pay-item {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 16px;
+  padding: 14px 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+.pay-item:first-of-type {
+  border-top: 0;
+}
+
+.pay-thumb {
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+  background: #f3f3f3;
+  overflow: hidden;
+}
+
+.pay-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* 이미지 비율 유지하면서 꽉 채우기 */
+  display: block;
+}
+
+.pay-item-info {
+  padding: 10px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.pay-item-name {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.pay-item-price {
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.pay-coupon-label,
+.pay-coupon {
+  grid-column: 1 / -1;
+}
+
+.pay-coupon {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  background-color: #f3f3f3;
+  padding: 10px 40px;
+  border-radius: 8px;
+}
+
+.pay-coupon-label {
+  white-space: nowrap;
+  width: 20%;
+  text-align: left;
+}
+
+/* 셀렉트는 가로로 꽉 차게 */
+.pay-input.pay-input-sm {
+  box-sizing: border-box;
+  border: 1px solid rgb(190, 190, 190, 0.7);
+  border-radius: 3px;
+  padding: 10px 20px;
+  color: #2b2b2b;
+  background-color: rgba(255, 255, 255, 0.1);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.pay-input.pay-input-sm ::placeholder {
+  color: #bbb;
+}
+
+/* 금액은 오른쪽 정렬 + 주황 */
+.pay-coupon-amount {
+  color: #f39535;
+  font-weight: 600;
+  white-space: nowrap;
+  text-align: right;
+  padding: 0 10px;
+  width: 30%;
+  text-align: right;
+}
+
+/* ===== Inputs / Buttons ===== */
+
+
+.pay-field {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.pay-field>span {
+  color: #333;
+}
+
+.pay-input {
+  width: 100%;
+  height: 42px;
+  border-radius: 5px;
+  border: 1px solid #e5e7eb;
+  padding: 0 14px;
+  outline: none;
+  background: #fff;
+}
+
+.pay-input:focus {
+  box-shadow: 0 0 0 3px rgba(54, 188, 222, 0.15);
+}
+
+.pay-input-sm {
+  height: 36px;
+}
+
+/* ✅ 입력 요소는 반드시 border-box */
+.pay-input,
+.pay-input-phone,
+.pay-phone select,
+.pay-input.pay-input-sm {
+  box-sizing: border-box;
+}
+
+/* (권장) 그리드 셀 안에서 줄어들 수 있게 */
+.pay-phone>* {
+  min-width: 0;
+}
+
+.pay-btn {
+  height: 42px;
+  padding: 0 16px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  cursor: pointer;
+}
+
+.pay-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.pay-btn-outline {
+  border-color: #f39535;
+  color: #f39535;
+  background: #fff;
+}
+
+.pay-btn-primary {
+  background: #86bcde;
+  border: none;
+  color: #f9f9f9;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.pay-submit {
+  width: 100%;
+  height: 56px;
+  border-radius: 8px;
+}
+
+.pay-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.pay-checkbox input {
+  width: 18px;
+  height: 18px;
+}
+
+.pay-phone {
+  display: grid;
+  grid-template-columns: 110px 1fr 1fr;
+  gap: 10px;
+}
+
+.pay-input-phone {
+  width: 100%;
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  outline: none;
+  background: #fff;
+}
+
+/* ===== Point ===== */
+
+.pay-point-use {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20%;
+  background: #fff;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  padding: 20px 30px;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.pay-tag {
+  color: #bbb;
+  font-weight: 400;
+  transition: color 0.2s ease;
+}
+
+
+/* ✅ 체크됐을 때 */
+.pay-point-use.is-active {
+  border-color: #f39535;
+}
+
+.pay-point-use.is-active .pay-tag {
+  color: #f39535;
+  font-weight: 400;
+}
+
+/* 기본 체크박스 스타일 제거 + 커스텀 */
+.pay-checkbox input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #bbb;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+
+}
+
+/* 체크되었을 때 */
+.pay-checkbox input[type="checkbox"]:checked {
+  background-color: #f39535;
+  border-color: #f39535;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+/* 체크된 후 흰색 체크 표시 추가 */
+.pay-checkbox input[type="checkbox"]:checked::after {
+  content: "";
+  width: 4px;
+  height: 8px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  line-height: 2px;
+}
+
+/* ===== Methods ===== */
+.pay-methods {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.pay-method {
+  height: 52px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  font-weight: 600;
+}
+
+.pay-method.is-active {
+  border-color: #f39535;
+  color: #f39535;
+}
+
+.pay-bankbox {
+  border-radius: 12px;
+  background: #f5f5f5;
+  padding: 14px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 12px;
+}
+
+.pay-bankline {
+  text-align: center;
+  font-size: 16px;
+}
+
+.pay-bankline b {
+  font-weight: 800;
+}
+
+/* ===== Summary ===== */
+.pay-summary {
+  position: sticky;
+  top: calc(var(--header-h) + 20px);
+  z-index: 1;
+  background-color: rgba(134, 188, 222, 0.2);
+  border-radius: 14px;
+  padding: 18px;
+  border: 1px solid #d7e8f3;
+}
+
+.pay-summary-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #143f70;
+  padding: 0 0 20px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.9);
+}
+
+.pay-summary-list {
+  margin: 0;
+  padding: 10px 0;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.9);
+}
+
+.pay-summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.pay-final {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  justify-content: end;
+  padding: 10px 0;
+  margin: 5px;
+}
+
+.pay-final-label {
+  color: #143f70;
+  font-weight: 500;
+  font-size: 22px;
+  margin-top: 20px;
+}
+
+.pay-final-price {
+  color: #143f70;
+  font-weight: bold;
+  font-size: 35px;
+}

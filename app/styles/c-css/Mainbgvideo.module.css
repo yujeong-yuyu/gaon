@@ -1,0 +1,54 @@
+#mbv-wrap {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    margin: 0 auto;
+    background-color: #000;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#mbv-wrap>video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.mbvBox {
+    position: relative;
+    z-index: 600;
+    width: 220px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.mbvBox>img {
+    width: 200px;
+    height: 200px;
+}
+
+.mbvBox>span {
+    color: #f9f9f9;
+    font-size: 20px;
+    font-weight: 100;
+    line-height: 150%;
+    text-align: center;
+    font-family: 'Pretendard';
+}
+
+@media (max-width: 769px) {
+    .mbvBox>img {
+        width: 150px;
+        height: 150px;
+    }
+}

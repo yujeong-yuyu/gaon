@@ -1,0 +1,1020 @@
+@font-face {
+    font-family: 'Pretendard-Thin';
+    src: url('/public/font/Pretendard-Thin.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('/public/font/Pretendard-Regular.otf') format('truetype');
+}
+
+.font-thin {
+    font-family: 'Pretendard-Thin';
+    font-weight: 600;
+}
+
+/* 전체 박스 */
+.category-allbox {
+    width: 100%;
+    min-width: 375px;
+    /* 이 컴포넌트 내부만 최소 너비 적용 */
+    background-color: #f9f9f9;
+    font-family: "Pretendard", sans-serif;
+
+    padding-top: 100px;
+    /* ✅ margin 대신 padding */
+}
+
+.category-wrapper {
+
+    background-color: #f9f9f9;
+
+}
+
+/* 헤더 */
+.category-header {
+    width: 100%;
+    height: 80px;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 내부 컨테이너: 최대 1300px, 좌우 20px 패딩 */
+/* 기본값 (PC 1300 이상) */
+.category-inner1300 {
+    max-width: 1300px;
+    /* ✅ 컨텐츠는 1300 안에서만 */
+    margin: 0 auto;
+    padding: 0 20px;
+    /* ✅ 바깥 여백 (content-box 기준) */
+    box-sizing: content-box;
+}
+
+/* 타이틀 */
+.category-title {
+    font-size: 50px;
+    font-weight: 600;
+    color: #f39535;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+/* 상단 레이아웃 */
+.category-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+
+    padding-bottom: 80px;
+    /* 콘텐츠와 선 사이 여백 */
+    border-bottom: 1px solid #ddd;
+    /* 박스 안쪽 경계에 선 */
+    margin-bottom: 80px;
+    /* 박스 밖 여백 */
+}
+
+/* 왼쪽 이미지 */
+.category-left {
+    flex: 1;
+}
+
+.category-main-img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+/* 오른쪽 내용 */
+.category-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 오른쪽 텍스트 박스 */
+.category-right p {
+    margin: 0 60px;
+    margin-top: 30px;
+    word-spacing: -1px;
+    line-height: 1.3;
+
+}
+
+.highlight-1 {
+    color: #F39535;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.category-buttons {
+    display: flex;
+    justify-content: space-between;
+    /* 버튼 전체 가운데 정렬 */
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: nowrap;
+    /* ✅ 줄바꿈 방지 */
+    overflow-x: auto;
+    /* ✅ 화면 좁을 땐 좌우 스크롤 */
+    scrollbar-width: none;
+    width: 570px;
+    margin-left: 55px;
+}
+
+.category-buttons::-webkit-scrollbar {
+    display: none;
+    /* 크롬/사파리 스크롤바 숨김 */
+}
+
+.category-btn {
+    flex: 0 0 100px;
+    padding: 8px 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+    /* 기본 테두리: 연한 회색 */
+    color: #999;
+    /* 기본 텍스트 색: 연한 회색 */
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 18px;
+    white-space: nowrap;
+    /* 텍스트 줄바꿈 방지 */
+    background-color: #f9f9f9;
+}
+
+/* ✅ hover 시 */
+.category-btn:hover {
+    /*     background-color: #f39535; */
+    /* 주황 배경 */
+    /*   color: #fff; */
+    /* 흰색 텍스트 */
+    border-color: #f39535;
+    color: #f39535;
+    /* 주황 테두리 */
+}
+
+/* ✅ active 시 */
+.category-btn.active {
+    background-color: #f39535;
+    /* 배경은 흰색 */
+    color: #f9f9f9;
+    /* 텍스트는 주황 */
+    border-color: #f39535;
+    /* 테두리 주황 */
+    font-weight: 700;
+    /* 폰트 굵게 */
+}
+
+.category2-btn.active:hover {
+    background-color: #f39535;
+    color: #f9f9f9;
+    border-color: #f39535;
+}
+
+
+
+/* 설명 텍스트 */
+.category-desc {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #333;
+    position: relative;
+    margin-bottom: 32px;
+    margin-top: 20px;
+    margin-left: 20px;
+    text-align: center;
+    /*     margin: 0 30px; */
+}
+
+.category-desc>p {
+    height: 160px;
+}
+
+
+/* 따옴표 이미지 */
+.quote-mark-img {
+    width: 32px;
+    height: auto;
+    vertical-align: top;
+    margin-left: 35px;
+    width: 45px;
+    height: auto;
+}
+
+.quote-mark-img.left {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.quote-mark-img.right {
+    display: block;
+    margin-top: -5px;
+    margin-left: auto;
+    width: 45px;
+    height: auto;
+}
+
+.leading-relaxed {
+    font-size: 20px;
+    padding: 0 30px 0 30px;
+    line-height: 1.3;
+    letter-spacing: -1px;
+}
+
+/* 학습 버튼 */
+.category-learn-btn {
+    align-self: flex-end;
+    border: none;
+    background: none;
+    color: #f39535;
+    font-weight: 700;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 3px;
+}
+
+.category-learn-btn img {
+    vertical-align: -5px;
+    /* 숫자 늘리면 더 아래로 내려감 */
+    margin-left: 6px;
+    margin-bottom: 2px;
+    /* 텍스트와 이미지 사이 여백 */
+}
+
+
+/* 검색창 */
+.category-search {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+}
+
+.category-search input {
+    width: 100%;
+    height: 68px;
+    padding: 12px 50px 12px 120px;
+    /* 검색창 여백: 위, 오른쪽, 아래, 왼쪽 */
+    border-radius: 30px;
+    border: 1px solid #ddd;
+    outline: none;
+    font-size: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.category-search .search-icon {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #f39535;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* 검색 결과 */
+.search-results {
+    margin-bottom: 80px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 60px;
+}
+
+/* ✅ 검색결과 카드 그리드 — 항상 4칸 유지 */
+/* 검색 결과 카드 컨테이너 */
+.search-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    /* ✅ 왼쪽 정렬로 고정 */
+    gap: 20px;
+    /* ✅ 일정 간격 유지 */
+}
+
+.search-cards .course-card {
+    flex: 0 0 calc(25% - 15px);
+    max-width: calc(25% - 15px);
+    box-sizing: border-box;
+}
+
+/* 카드 공통 (4개 기준 비율 유지) */
+.course-card,
+.empty-slot {
+    flex: 0 0 calc((100% - 72px) / 4);
+    /* 24px 간격 × 3 */
+    box-sizing: border-box;
+}
+
+/* 빈칸은 공간만 유지 (보이지 않게) */
+.empty-slot {
+    visibility: hidden;
+}
+
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.section-header h3 {
+    font-size: 24px;
+    color: #333;
+    font-weight: 700;
+}
+
+.no-results {
+    text-align: center;
+    font-size: 18px;
+    color: #999;
+    padding: 60px 0;
+}
+
+
+/* 카드 영역 */
+.category-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: nowrap;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* 개별 카드 */
+.course-card {
+    flex: 1 1 25%;
+    max-width: 25%;
+    height: 392px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: box-shadow 0.3s ease;
+    overflow: hidden;
+    /* ✅ 이미지 튀어나오는 문제 해결 */
+    position: relative;
+}
+
+/* 버튼 */
+.course-btn {
+    width: calc(100% - 2px);
+    /* 테두리 두께(1px씩 양쪽)만큼 줄임 */
+    height: 48px;
+    background-color: #F39535;
+    color: #f9f9f9;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    /* ✅ 버튼에도 테두리 추가 */
+    border-top: none;
+    /* 카드 테두리와 겹치지 않게 */
+    border-radius: 0 0 8px 8px;
+    /* 카드와 동일한 아래 모서리 */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: center;
+    /* 중앙 정렬 */
+}
+
+
+.course-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.course-card:hover .course-btn {
+    font-weight: 700;
+    background-color: #ff8c1a;
+    /* 원하면 버튼 hover 효과도 함께 */
+}
+
+
+/* 이미지 */
+.course-img {
+    width: 100%;
+    height: 230px;
+    /* ✅ 고정 높이로 비율 유지 */
+    object-fit: cover;
+    /* ✅ 비율 깨지지 않게 꽉 채움 */
+    transition: transform 0.4s ease;
+    border-radius: 8px 8px 0 0;
+    /* 상단 모서리만 둥글게 */
+    position: relative;
+}
+
+.course-card:hover .course-img {
+    transform: scale(1.05);
+    /* ✅ 확대돼도 카드 밖으로 안 나감 */
+}
+
+.course-cart-fab {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(0, 0, 0, .06);
+    border-radius: 50%;
+    /* 스샷 느낌: 살짝 둥근 사각형 */
+    background: rgba(12, 12, 12, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f9f9f9;
+    font-size: 16px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .08);
+    transition: transform .12s ease, box-shadow .12s ease, color .12s ease, background .12s ease;
+}
+
+.course-cart-fab:hover {
+    transform: translateY(-1px);
+    color: #ff8c1a;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .12);
+}
+
+.course-cart-fab:active {
+    transform: translateY(0);
+}
+
+
+/* 내용 */
+.course-content {
+    flex: 1;
+    padding: 12px 16px;
+    text-align: left;
+}
+
+.course-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 4px;
+}
+
+.course-tag {
+    color: #F39535;
+    font-size: 13px;
+    border: 1px solid #F39535;
+    border-radius: 5px;
+    padding: 4px 6px;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.course-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #222;
+}
+
+/* 버튼 */
+.course-btn {
+    background-color: #F39535;
+    color: #fff;
+    height: 48px;
+    font-size: 16px;
+    border: none;
+    border-top: 1px solid #ddd;
+    cursor: pointer;
+    border-radius: 0 0 8px 8px;
+    transition: background-color 0.3s;
+}
+
+.course-btn:hover {
+    background-color: #ff7f00;
+}
+
+/* 섹션 타이틀 */
+.category-section {
+    margin-bottom: 80px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.section-header h3 {
+    font-size: 24px;
+    color: #333;
+    font-weight: 700;
+}
+
+.more-btn {
+    font-size: 16px;
+    color: #999;
+    cursor: pointer;
+}
+
+.more-btn:hover {
+    color: #f39535;
+}
+
+
+/* 배너 1 */
+.category-banner1 {
+    width: 100%;
+    margin: 80px 0;
+    text-align: center;
+}
+
+.category-banner-img {
+    width: 100%;
+    max-width: 1300px;
+    height: auto;
+    /*     border-radius: 16px; */
+    object-fit: cover;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+
+    margin-top: 60px;
+}
+
+/* ----------------------------------반응형 코드 Start-> Next.js에선 파일 하나로 합칠게요!!! */
+
+/* ---------------- 1300px 이상 ---------------- */
+@media (min-width: 1300px) {
+
+    /* ✅ 검색 결과 카드 */
+    .category1-page .search-results .category-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        justify-content: flex-start;
+        /* 왼쪽부터 카드 배치 */
+        align-items: stretch;
+    }
+
+    .category1-page .search-results .course-card {
+        flex: 0 0 calc(25% - 18px);
+        max-width: calc(25% - 18px);
+        box-sizing: border-box;
+    }
+
+    /* ✅ 일반 섹션 카드 */
+    .category1-page .category-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        justify-content: flex-start;
+        /* 왼쪽 정렬 유지 */
+        align-items: stretch;
+    }
+
+    .category1-page .category-cards .course-card {
+        flex: 0 0 calc(25% - 18px);
+        max-width: calc(25% - 18px);
+        box-sizing: border-box;
+    }
+}
+
+/* ---------------- 1300px 이상 End ---------------- */
+
+
+/* ------------------------ 768 Start-------------------------------------- */
+@media (max-width: 768px) {
+    .category-title {
+        margin-top: 27px;
+        margin-left: 3px;
+    }
+
+    .category1-page .category-top {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        padding-bottom: 40px;
+    }
+
+    .category1-page .course-card {
+        max-width: 48%;
+        flex: 1 1 48%;
+    }
+
+    .category1-page .category-cards {
+        flex-wrap: wrap;
+    }
+
+    .category1-page .category-title {
+        font-size: 36px;
+    }
+
+    .category1-page .category-left {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .category1-page .category-main-img {
+        width: 720px;
+        max-width: 100%;
+        height: 270px;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
+    /* 태블릿 버전 별도 제목 옆 버튼 코드------------- */
+
+    /* PC 기본 제목은 숨김 */
+    .category1-page .category-title:not(.category-header-T .category-title) {
+        display: none;
+    }
+
+    .category1-page .category-buttons {
+        display: none;
+    }
+
+    /* ✅ 768px 전용 제목+버튼 */
+    .category1-page .category-header-T {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 16px;
+    }
+
+    .category1-page .category-header-T .category-title {
+        font-size: 45px;
+        color: #f39535;
+        white-space: nowrap;
+    }
+
+    .category1-page .category-buttons-T {
+        display: flex;
+        gap: 10px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin-right: 5px;
+    }
+
+    .category1-page .category-buttons-T::-webkit-scrollbar {
+        display: none;
+    }
+
+    .category1-page .category-buttons-T .category-btn {
+        flex: 0 0 100px;
+        width: 100px;
+        text-align: center;
+        white-space: nowrap;
+        font-size: 17px;
+        padding: 6px 0;
+        border-radius: 5px;
+    }
+
+    .category1-page .category-learn-btn {
+        margin-top: 30px;
+        margin-right: 23px;
+        flex: right;
+    }
+
+    .category1-page .category-right {
+        width: 768px;
+    }
+
+    .category1-page .category-desc {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .category1-page .quote-mark-img {
+        display: none !important;
+    }
+}
+
+/* ---------------- 769px 이상 ---------------- */
+@media (min-width: 769px) {
+    .category1-page .category-header-T {
+        display: none;
+    }
+}
+
+/* 태블릿 버전 별도 제목 옆 버튼 코드 EndPoint------------- */
+
+/* -----------------------------768 End-------------------------------------- */
+
+
+/* -----------------------------480 Start-------------------------------------- */
+@media (max-width: 480px) {
+
+    /* ✅ 전체 구조 */
+    .category1-page .category-allbox {
+        padding-top: 80px;
+    }
+
+    .category1-page .category-title {
+        font-size: 28px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    /* ✅ 제목 + 버튼 묶음 */
+    .category1-page .category-header-T {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .category1-page .category-header-T .category-title {
+        font-size: 32px;
+    }
+
+    .category1-page .category-buttons-T {
+        gap: 6px;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .category1-page .category-buttons-T .category-btn {
+        flex: 0 0 100px;
+        /* 버튼의 너비를 이미지 끝에 맞게 더 넓힘 */
+        width: 100px;
+        font-size: 14px;
+        padding: 5px 0;
+        border-radius: 5px;
+    }
+
+    /* ✅ 상단 레이아웃 */
+    .category1-page .category-top {
+        gap: 16px;
+        padding-bottom: 30px;
+    }
+
+    .category1-page .category-main-img {
+        width: 100%;
+        height: 180px;
+        border-radius: 10px;
+    }
+
+    .category1-page .category-right {
+        width: 100%;
+    }
+
+    .category1-page .category-desc {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-top: 12px;
+        text-align: center;
+    }
+
+    .category1-page .category-desc p {
+        display: block;
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .category1-page .category-learn-btn {
+        align-self: center;
+        font-size: 16px;
+        margin-top: 20px;
+        margin-right: 0;
+    }
+
+    .category-learn-btn>img {
+        margin-bottom: 3px;
+        width: 16px;
+        height: 16px;
+    }
+
+    /* ✅ 검색창 */
+    .category1-page .category-search {
+        max-width: 420px;
+        margin-bottom: 30px;
+        margin-top: -40px;
+    }
+
+    .category1-page .category-search input {
+        height: 50px;
+        font-size: 11px;
+        padding: 10px 45px 10px 20px;
+    }
+
+    .category1-page .category-search .search-icon {
+        right: 20px;
+        font-size: 22px;
+    }
+
+    /* ✅ 카드 */
+    .category1-page .category-cards {
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .category1-page .course-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .category1-page .course-img {
+        height: 180px;
+    }
+
+    .category1-page .course-content {
+        padding: 10px 12px;
+    }
+
+    .category1-page .course-title {
+        font-size: 16px;
+    }
+
+    .category1-page .course-btn {
+        height: 40px;
+        font-size: 14px;
+    }
+
+    /* ✅ 배너 */
+    .category1-page .category-banner1 {
+        margin: 40px 0;
+    }
+
+    .category1-page .category-banner-img {
+        border-radius: 10px;
+    }
+
+    /* ✅ 기타 텍스트 */
+    .category1-page .section-header h3 {
+        font-size: 18px;
+    }
+
+    .category1-page .no-results {
+        font-size: 16px;
+    }
+
+    /* 따옴표 이미지 숨김 */
+    .category1-page .quote-mark-img {
+        display: none !important;
+    }
+}
+
+/* -----------------------------480 End-------------------------------------- */
+
+
+
+
+
+
+/* -----------------------------375 Start-------------------------------------- */
+@media (max-width: 375px) {
+
+    /* ✅ 전체 구조 */
+    .category1-page .category-allbox {
+        padding-top: 80px;
+    }
+
+    .category1-page .category-title {
+        font-size: 28px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    /* ✅ 제목 + 버튼 묶음 */
+    .category1-page .category-header-T {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .category1-page .category-header-T .category-title {
+        font-size: 32px;
+    }
+
+    .category1-page .category-buttons-T {
+        gap: 6px;
+        justify-content: center;
+    }
+
+    .category1-page .category-buttons-T .category-btn {
+        flex: 0 0 80px;
+        width: 80px;
+        font-size: 14px;
+        padding: 5px 0;
+    }
+
+    /* ✅ 상단 레이아웃 */
+    .category1-page .category-top {
+        gap: 16px;
+        padding-bottom: 30px;
+    }
+
+    .category1-page .category-main-img {
+        width: 100%;
+        height: 180px;
+        border-radius: 10px;
+    }
+
+    .category1-page .category-right {
+        width: 100%;
+    }
+
+    .category1-page .category-desc {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-top: 12px;
+        text-align: center;
+    }
+
+    .category1-page .category-desc p {
+        display: block;
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .category1-page .category-learn-btn {
+        align-self: center;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+
+    /* ✅ 검색창 */
+    .category1-page .category-search {
+        max-width: 320px;
+        margin-bottom: 30px;
+    }
+
+    .category1-page .category-search input {
+        height: 50px;
+        font-size: 11px;
+        padding: 10px 45px 10px 20px;
+    }
+
+    .category1-page .category-search .search-icon {
+        right: 20px;
+        font-size: 22px;
+    }
+
+    /* ✅ 카드 */
+    .category1-page .category-cards {
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .category1-page .course-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .category1-page .course-img {
+        height: 180px;
+    }
+
+    .category1-page .course-content {
+        padding: 10px 12px;
+    }
+
+    .category1-page .course-title {
+        font-size: 16px;
+    }
+
+    .category1-page .course-btn {
+        height: 40px;
+        font-size: 14px;
+    }
+
+    /* ✅ 배너 */
+    .category1-page .category-banner1 {
+        margin: 40px 0;
+    }
+
+    .category1-page .category-banner-img {
+        border-radius: 10px;
+    }
+
+    /* ✅ 기타 텍스트 */
+    .category1-page .section-header h3 {
+        font-size: 18px;
+    }
+
+    .category1-page .no-results {
+        font-size: 16px;
+    }
+
+    /* 따옴표 이미지 숨김 */
+    .category1-page .quote-mark-img {
+        display: none !important;
+    }
+}
+
+/* -----------------------------375 End-------------------------------------- */
+
+
+
+/* ----------------------------------반응형 코드 End-> Next.js에선 파일 하나로 합칠게요!!! */

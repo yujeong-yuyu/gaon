@@ -1,0 +1,321 @@
+.container_post {
+    max-width: 1300px;
+    width: 90%;
+    margin: 120px auto 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    font-family: "Pretendard", sans-serif;
+}
+
+/* 제목 영역 */
+.titleBox_post {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.title_post {
+    font-size: 32px;
+    font-weight: 700;
+    color: #f7931e;
+}
+
+.titleLine_post {
+    flex: 1;
+    height: 2px;
+    background-color: #f7931e;
+    position: relative;
+}
+
+.titleLine_post::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: #f7931e;
+    border-radius: 50%;
+}
+
+
+/* 게시글 끝 구분선 */
+.endLine_post {
+    width: 100%;
+    /* 텍스트 영역 전체 너비 */
+    height: 2px;
+    background-color: #f7931e;
+    margin: 20px 0;
+    position: relative;
+}
+
+/* 동그라미 오른쪽 끝으로 */
+.endLine_post::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    /* 왼쪽에서 오른쪽 끝으로 이동 */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: #f7931e;
+    border-radius: 50%;
+}
+
+
+/* 동그라미 위치를 이미지 왼쪽과 맞추고 싶다면 부모에 padding-left 적용 가능 */
+
+
+
+/* 메인 콘텐츠 */
+.contentRow_post {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* 왼쪽 이미지 */
+.imageArea_post {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    /* 부모 폭 전체 사용 */
+    /* align-items: center 제거 */
+}
+
+.mainImage_post {
+    width: 100%;
+    /* 부모 폭 전체 사용 */
+    max-width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.noImageBox_post {
+    width: 100%;
+    height: 400px;
+    background-color: #e5e5e5;
+    color: #777;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* 썸네일 */
+.thumbnailRow_post {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    /* 썸네일 3개 균등 배치 */
+    width: 100%;
+    /* 부모 폭 전체 사용 */
+}
+
+.thumbnailRow_post img,
+.noThumb_post {
+    flex: 1 1 0;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.thumbnailRow_post img:hover {
+    transform: scale(1.05);
+}
+
+/* 썸네일 없을 때 */
+.noThumbBox_post {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+}
+
+.noThumb_post {
+    flex: 1 1 0;
+    height: 90px;
+    background-color: #e5e5e5;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* 오른쪽 텍스트 */
+.textArea_post {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: relative;
+}
+
+/* ✅ 프로필 + 카테고리 */
+.profileRow_post {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profileBox_post {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.profileCircle_post {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+}
+
+.username_post {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+.category_post {
+    font-size: 14px;
+    color: #f7931e;
+    font-weight: 500;
+}
+
+/* 제목 + 내용 */
+.postTitle_post {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+.postContent_post {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.7;
+    white-space: pre-line;
+}
+
+/* 버튼 */
+.bottomBtnBox_post {
+    display: flex;
+    justify-content: center;
+}
+
+.listBtn_post {
+    width: 160px;
+    height: 48px;
+    background-color: #f7931e;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.listBtn_post:hover {
+    background-color: #ffa341;
+}
+
+
+/* 게시글 내용 하단 아이콘 */
+.actionIcons_post {
+    display: flex;
+    justify-content: flex-end;
+    /* 오른쪽 정렬 */
+    gap: 12px;
+    font-size: 16px;
+    color: #f7931e;
+    cursor: pointer;
+    margin-top: auto;
+    /* content 끝에서 endLine 바로 위로 */
+}
+
+/* 호버시 살짝 커지게 */
+.actionIcons_post i:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+/* ✅ 반응형 */
+@media (max-width: 1300px) {
+    .container_post {
+        width: 94%;
+        gap: 32px;
+    }
+
+    .contentRow_post {
+        gap: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contentRow_post {
+        flex-direction: column;
+        align-items: stretch;
+        /* 중앙 정렬 대신 폭 꽉 채움 */
+    }
+
+    .imageArea_post {
+        width: 100%;
+    }
+
+    .mainImage_post {
+        max-width: 100%;
+    }
+
+    .thumbnailRow_post img,
+    .noThumb_post {
+        height: 80px;
+    }
+
+    .textArea_post {
+        width: 100%;
+        text-align: left;
+    }
+
+    .profileRow_post {
+        margin-top: 10px;
+    }
+
+    .postTitle_post {
+        font-size: 18px;
+    }
+
+    .postContent_post {
+        font-size: 14.5px;
+    }
+
+    .listBtn_post {
+        width: 140px;
+        height: 44px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 365px) {
+
+    .thumbnailRow_post img,
+    .noThumb_post {
+        height: 70px;
+    }
+
+    .listBtn_post {
+        width: 120px;
+        height: 40px;
+        font-size: 15px;
+    }
+}

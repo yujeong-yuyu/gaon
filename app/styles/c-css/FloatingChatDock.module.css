@@ -1,0 +1,66 @@
+.ftDock {
+    position: fixed;
+    right: 16px;
+    bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    z-index: 9997;
+}
+
+.ftDockPill {
+    width: 64px;
+    height: 128px;
+    border-radius: 999px;
+    background: #f39535;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+.ftCal,
+.ftChat {
+    all: unset;
+    color: #fff;
+    font-size: 26px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: background 0.2s ease;
+}
+
+.ftCal:hover,
+.ftChat:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.ftDockPill:active {
+    transform: translateY(1px);
+}
+
+.ftDockUp {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #f39535;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.ftDockUp.show {
+    opacity: 1;
+    pointer-events: auto;
+}

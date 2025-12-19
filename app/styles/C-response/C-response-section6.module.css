@@ -1,0 +1,13 @@
+/* 768px 이하 */
+@media (max-width: 769px) {
+    .sec6 .sec6Title {
+        font-size: 28px;
+    }
+}
+
+/* 375px 이하 */
+@media (max-width: 376px) {
+    .sec6 .sec6Title {
+        font-size: 20px;
+    }
+}

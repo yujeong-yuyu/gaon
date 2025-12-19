@@ -1,0 +1,247 @@
+.wrapMB {
+    width: 100%;
+    padding-top: 140px;
+    margin-bottom: 100px;
+}
+
+.containerMB {
+    width: 650px;
+    height: 100%;
+    margin: 40px auto 0 auto;
+}
+
+.titleMB {
+    font-size: 35px;
+    font-weight: bold;
+    color: #2b2b2b;
+}
+
+.containerMB>form {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.idpMB,
+.pwpMB,
+.empMB,
+.agreepMB {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2b2b2b;
+}
+
+.idpMB>span,
+.pwpMB>span,
+.empMB>span {
+    color: #F39535;
+    font-size: 25px;
+    margin-left: 5px;
+}
+
+.idboxMB {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+.idboxMB>input {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 18px;
+    width: 80%;
+}
+
+.idboxMB>input::placeholder {
+    color: #ccc;
+}
+
+.idboxMB>input:focus {
+    border-color: #F39535;
+}
+
+.idboxMB>button {
+    width: 20%;
+    height: 63px;
+    background-color: #F39535;
+    color: #f9f9f9;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.idboxMB>button:hover {
+    background-color: #f08417;
+}
+
+.containerMB>form>input {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 18px;
+    width: 93.6%;
+    margin-top: 10px;
+}
+
+.containerMB>form>input::placeholder {
+    color: #ccc;
+}
+
+.containerMB>form>input:focus {
+    border-color: #F39535;
+}
+
+.empMB,
+.agreepMB {
+    margin-top: 40px;
+}
+
+.allMB {
+    width: 99.7%;
+    height: 60px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 25px;
+    font-weight: 500;
+    color: #bbb;
+    cursor: pointer;
+    position: relative;
+}
+
+.allMB>img {
+    position: absolute;
+    width: 110px;
+    height: 60px;
+    top: -35px;
+    right: 70px;
+}
+
+.allMB>span {
+    font-size: 18px;
+    font-weight: 300;
+    color: #bbb;
+    margin-left: 10px;
+}
+
+.checkboxMB {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 200px;
+    gap: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.checkboxMB>div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.checkboxMB>div>input {
+    width: 24px;
+    height: 24px;
+}
+
+.checkboxMB>div>label {
+    font-size: 20px;
+    color: #2b2b2b;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.checkboxMB>div>label>span {
+    font-size: 25px;
+    font-weight: bold;
+    color: #F39535;
+}
+
+.alertspanMB {
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #aaa;
+    line-height: 150%;
+}
+
+.containerMB>form>button {
+    margin-top: 30px;
+    width: 100%;
+    height: 70px;
+    background-color: #F39535;
+    color: #f9f9f9;
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.containerMB>form>button:hover {
+    background-color: #f08417;
+}
+
+.memberscheckMB {
+    position: absolute;
+    width: 130px;
+    height: 70px;
+    right: 50px;
+    top: -45px;
+}
+
+.allMB.active {
+    border-color: #F39535;
+    color: #F39535;
+}
+
+.allMB.active .allspanMB {
+    color: #F39535;
+}
+
+.teacher-mode .starMB {
+    color: #143f70;
+}
+
+.teacher-mode .containerMB>form>input:focus {
+    border-color: #143f70;
+}
+
+.teacher-mode .idboxMB>input:focus {
+    border-color: #143f70;
+}
+
+.teacher-mode .allMB.active {
+    border-color: #143f70;
+    color: #143f70;
+}
+
+.teacher-mode .allMB.active .allspanMB {
+    color: #143f70;
+}
+
+.teacher-mode button[type="button"],
+.teacher-mode button[type="submit"] {
+    background-color: #143f70;
+    border-color: #143f70;
+}
+
+.teacher-mode button[type="button"]:hover,
+.teacher-mode button[type="submit"]:hover {
+    background-color: #023774;
+    border-color: #023774;
+}

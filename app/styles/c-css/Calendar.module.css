@@ -1,0 +1,413 @@
+/* ───────── 오버레이 ───────── */
+.cal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 9998;
+}
+
+/* ───────── 모달 컨테이너(오렌지 배경) ───────── */
+.cal-modal {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  width: 375px;
+  height: auto;
+  border-radius: 15px;
+  background: var(--cal-orange);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 9999;
+  font-family: "Pretendard", sans-serif;
+}
+
+/* ───────── 상단 흰 카드 영역 ───────── */
+.cal-header {
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: border-radius 0.2s ease;
+  overflow: hidden;
+}
+
+.is-planner .cal-header {
+  border-radius: 16px;
+}
+
+/* 상단 타이틀 */
+.cal-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.cal-title h2 {
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--cal-orange);
+}
+
+.cal-line {
+  flex: 1;
+  height: 1px;
+  border-radius: 3px;
+  background: var(--cal-orange);
+}
+
+/* 뒤로/닫기 버튼 */
+.cal-backbtn {
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 100;
+  cursor: pointer;
+  color: var(--cal-orange);
+  transition: color 0.2s;
+}
+
+.cal-backbtn:hover {
+  color: var(--cal-orange);
+}
+
+/* 월 이동 */
+.cal-month-nav {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-size: 14px;
+  font-weight: 200;
+  color: var(--cal-orange);
+}
+
+.cal-month-nav button {
+  background: transparent;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 22px;
+  font-weight: 200;
+  color: var(--cal-orange);
+}
+
+.cal-month-nav button:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* 콘텐츠 */
+.cal-content {
+  position: relative;
+  background: #fff;
+  padding-bottom: 10px;
+  border-radius: 0 0 16px 16px;
+}
+
+/* 요일 */
+.cal-weekdays {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-size: 11px;
+  color: #2b2b2b;
+  font-weight: 300;
+  background: #fff;
+  padding: 0 20px 10px;
+}
+
+/* 날짜 그리드 */
+.cal-grid {
+  background: #fff;
+  margin-top: 4px;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.cal-day {
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  font-size: 13px;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.cal-day:hover {
+  background: #fdf1e0;
+}
+
+/* ───────── 하단 오렌지 패널 ───────── */
+.cal-agenda {
+  padding: 16px 20px;
+}
+
+.cal-agenda--orange {
+  background: var(--cal-orange);
+  color: #fff;
+  border-radius: 0 0 16px 16px;
+  padding: 16px 0;
+  margin-top: 10px;
+}
+
+.cal-selected-date {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 12px;
+}
+
+.cal-date-line {
+  height: 1px;
+  background-color: #fff;
+  margin-bottom: 20px;
+}
+
+.cal-noevent {
+  margin-left: 12px;
+}
+
+/* 리스트 */
+.cal-eventlist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cal-event-item {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  font-size: 13px;
+  margin-bottom: 8px;
+  font-weight: 300;
+}
+
+.cal-time {
+  min-width: 44px;
+  text-align: right;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.95);
+  margin-top: 5px;
+}
+
+.cal-title-text {
+  flex: 1;
+  color: #fff;
+  margin-top: 5px;
+}
+
+.cal-delete {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.18);
+  margin-right: 12px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.08s ease;
+}
+
+.cal-delete:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.cal-delete:active {
+  transform: translateY(1px);
+}
+
+/* 버튼 바 */
+.cal-footer-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+  margin-right: 12px;
+}
+
+.cal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: #fff;
+  color: var(--cal-orange);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.2s ease;
+}
+
+.cal-btn:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
+.cal-btn:active {
+  transform: translateY(1px);
+}
+
+/* ───────── 플래너 전용 ───────── */
+.cal-planner-chiprow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 20px 0 0;
+  background: #fff;
+}
+
+.cal-chip-scroller {
+  flex: 1;
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 6px 2px 12px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.cal-chip-scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.cal-chip {
+  scroll-snap-align: center;
+  min-width: 56px;
+  height: 90px;
+  border: none;
+  border-radius: 40px;
+  background: var(--cal-orange-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.cal-chip:active {
+  transform: translateY(1px);
+}
+
+.cal-chip.active {
+  background: #fff;
+  border: 2px solid var(--cal-orange);
+}
+
+.cal-chip-day {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--cal-orange);
+}
+
+.cal-chip-week {
+  font-size: 14px;
+  font-weight: 200;
+  color: var(--cal-orange);
+}
+
+.cal-planner-body {
+  background: var(--cal-orange);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 100%;
+}
+
+.cal-pl-label {
+  font-size: 16px;
+  font-weight: 300;
+  color: #fff;
+}
+
+.cal-pl-textarea {
+  height: 120px;
+  resize: none;
+  border: none;
+  border-radius: 10px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.5);
+  font-size: 13px;
+  color: #2b2b2b;
+  outline: none;
+}
+
+.cal-pl-textarea::placeholder {
+  color: #fff;
+  font-family: "Pretendard";
+}
+
+.cal-pl-time {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--cal-orange);
+}
+
+.cal-pl-select {
+  width: 50%;
+  border: none;
+  border-radius: 999px;
+  background: #fff;
+  padding: 10px 30px;
+  font-size: 13px;
+  outline: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  color: var(--cal-orange);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5' fill='none' stroke='%23F39535' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  filter: none;
+  mix-blend-mode: normal;
+  background-blend-mode: normal;
+}
+
+.cal-pl-save {
+  margin-top: auto;
+  width: 100%;
+  background: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 14px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cal-orange);
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  transition: transform 0.1s;
+}
+
+.cal-pl-save:hover {
+  transform: translateY(-1px);
+}
+
+.cal-pl-save:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

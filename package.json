@@ -1,0 +1,30 @@
+{
+  "name": "gaon--experimental-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^7.1.0",
+    "@fortawesome/free-solid-svg-icons": "^7.1.0",
+    "@fortawesome/react-fontawesome": "^3.1.0",
+    "@iconify/react": "^6.0.2",
+    "axios": "^1.12.2",
+    "bcryptjs": "^3.0.2",
+    "classnames": "^2.5.1",
+    "cors": "^2.8.5",
+    "formidable": "^3.5.4",
+    "jose": "^6.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "4",
+    "mongoose": "^8.19.2",
+    "next": "15.5.5",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "6"
+  }
+}

@@ -1,0 +1,129 @@
+.wrapHD2 {
+    width: 100%;
+    height: 80px;
+    background-color: #f9f9f9;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 1px 3px #ccc;
+}
+
+.containerHD2 {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.containerHD2>a {
+    text-decoration: none;
+}
+
+.containerHD2>a>img {
+    width: 110px;
+    height: 30px;
+}
+
+.menuboxHD2 {
+    display: flex;
+    align-items: center;
+    gap: 70px;
+    transition: all 0.2s;
+}
+
+.menuboxHD2>svg {
+    width: 37px;
+    height: 37px;
+    color: #2b2b2b;
+    cursor: pointer;
+}
+
+.mmspanHD2 {
+    font-size: 25px;
+    font-weight: bold;
+    display: flex;
+    gap: 70px;
+    transition: all 0.2s;
+}
+
+.mmspanHD2>a {
+    cursor: pointer;
+    color: #2b2b2b;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.mmspanHD2>a:hover {
+    color: #F39535;
+}
+
+.hambtnHD2:hover {
+    opacity: 1;
+}
+
+@media (min-width: 768px) and (max-width: 1299px) {
+    .wrapHD2 {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+    }
+
+    .menuboxHD2 {
+        gap: 30px;
+        transition: all 0.2s;
+    }
+
+    .mmspanHD2 {
+        gap: 30px;
+        transition: all 0.2s;
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+    .wrapHD2 {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+    }
+
+    .mmspanHD2 {
+        display: none;
+    }
+}
+
+@media (min-width: 375px) and (max-width: 479px) {
+    .wrapHD2 {
+        width: 100vw;
+        height: 50px;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    .containerHD2>a>img {
+        width: 70px;
+        height: 20px;
+        margin-top: 4px;
+    }
+
+    .menuboxHD2 {
+        gap: 20px;
+    }
+
+    .menuboxHD2>svg {
+        width: 27px;
+        height: 27px;
+        color: #2b2b2b;
+    }
+
+    .mmspanHD2 {
+        display: none;
+    }
+}

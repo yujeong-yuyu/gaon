@@ -1,0 +1,722 @@
+.sec3AllBox {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    background-color: #86bcde;
+    display: flex;
+    flex-direction: column;
+}
+
+.sec3Inner1300 {
+    flex: 1;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 0 20px;
+}
+
+.sec3TitleBox {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 60px;
+    margin-top: 80px;
+    margin-bottom: 0;
+}
+
+.sec3Title {
+    font-size: 40px;
+    font-weight: bold;
+    color: #f9f9f9;
+}
+
+.sec3Line {
+    position: relative;
+    flex: 1;
+    height: 2px;
+    background-color: white;
+}
+
+.sec3Line::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+/* 영상 태그 */
+.sec3Video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+
+/* 토글 스위치 */
+.sec3ToggleSwitch {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 80px;
+    height: 38px;
+    background-color: #ddd;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+}
+
+.sec3ToggleSwitch.on {
+    background-color: #ffa733;
+}
+
+.sec3ToggleSwitch.off {
+    background-color: #bbb;
+}
+
+.toggleCircle {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.sec3ToggleSwitch.on .toggleCircle {
+    transform: translateX(42px);
+}
+
+.toggleText {
+    position: absolute;
+    right: 100%;
+    margin-right: 8px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    pointer-events: none;
+}
+
+/* 영상 + 말풍선 래퍼 */
+.sec3VideoSpeechWrapper {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+    align-items: flex-start;
+    margin-top: 150px;
+}
+
+/* 영상 박스 */
+.sec3VideoWrapper {
+    position: relative;
+    width: 666px;
+    height: 420px;
+    flex-shrink: 0;
+}
+
+.sec3Autoplay {
+    width: 666px;
+    height: 420px;
+    border-radius: 20px;
+    background-color: #86BCDE;
+}
+
+/* 박스 위 "Before" 텍스트 */
+.sec3BeforeTxt,
+.sec3AfterTxt {
+    position: absolute;
+    bottom: 16px;
+    /* 🔥 영상 하단 기준 */
+    right: 72px;
+    /* 🔥 토글 버튼 왼쪽 여백 */
+    font-size: 15px;
+    color: #fff;
+    font-weight: 500;
+    z-index: 6;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    display: none;
+    white-space: nowrap;
+}
+
+/* 말풍선 박스 */
+.sec3SpeechWrapper {
+    width: 620px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 420px;
+    position: relative;
+}
+
+/* 왼쪽 큰따옴표 이미지 */
+.speechQuoteLeft {
+    position: absolute;
+    left: -20px;
+    margin-top: -100px;
+    z-index: 1;
+}
+
+/* 오른쪽 큰따옴표 이미지 */
+.speechQuoteRight {
+    position: absolute;
+    bottom: -50px;
+    right: -20px;
+    z-index: 1;
+}
+
+/* 말풍선 스타일 */
+.speech {
+    max-width: 418px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    background-color: white;
+    color: #333;
+    position: relative;
+    font-size: 28px;
+    line-height: 1.4;
+}
+
+/* 왼쪽 말풍선 */
+.speechLeft {
+    align-self: flex-start;
+    margin-top: -20px;
+    margin-left: 50px;
+    font-weight: 500;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-size: 26px;
+}
+
+/* 오른쪽 말풍선 래퍼 */
+.speechRightWrapper {
+    position: relative;
+}
+
+.speechRightOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 800px;
+    height: 270px;
+    pointer-events: none;
+    object-fit: contain;
+    z-index: 0;
+}
+
+.speechRight {
+    position: relative;
+    z-index: 1;
+    max-width: 325px;
+    width: auto;
+    padding: 18px 18px;
+    border-radius: 12px;
+    background-color: white;
+    color: #333;
+    font-size: 23px;
+    line-height: 1.4;
+    overflow: visible;
+    white-space: normal;
+    word-wrap: break-word;
+    margin-bottom: 100px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+
+
+    /* ✅ 위치 조정 */
+    left: 150px;
+    /* 기존 110px → 오른쪽으로 약간 이동 */
+    top: 20px;
+    /* 기존 30px → 위쪽으로 약간 이동 */
+}
+
+.highlight {
+    font-weight: 600;
+}
+
+/* 왼쪽 말풍선 꼬리 */
+.speechLeft::after {
+    content: "";
+    position: absolute;
+    left: -8px;
+    top: 15px;
+    border: 8px solid transparent;
+    border-right-color: white;
+}
+
+/* 등장 애니메이션 */
+@keyframes slideUpFade {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 등장 클래스 */
+.fadeInLeft {
+    animation: slideUpFade 0.8s ease-out 0.4s forwards;
+}
+
+.fadeInRight {
+    animation: slideUpFade 0.8s ease-out 0.8s forwards;
+}
+
+.fadeInVideo {
+    animation: fadeUpVideo 0.8s ease-out forwards;
+}
+
+@keyframes fadeUpVideo {
+    0% {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 초기 상태 숨김 */
+.sec3VideoWrapper,
+.speechLeft,
+.speechRightWrapper,
+.speechQuoteLeft,
+.speechQuoteRight {
+    opacity: 0;
+}
+
+
+
+/* 반응형 Start---------------------------- */
+
+/* ✅ 1300px 이하일 때 영상, 말풍선 영역 높이 위치 조절. */
+@media (max-width: 1300px) {
+
+    .sec3AllBox {
+        min-height: 880px;
+        /* 🔥 살짝 높이 늘려 */
+    }
+
+    .sec3AllBox .sec3VideoSpeechWrapper {
+        margin-top: 120px;
+    }
+
+    .sec3AllBox .sec3SpeechWrapper {
+        margin-top: 50px;
+    }
+
+    .sec3BeforeTxt,
+    .sec3AfterTxt {
+        display: none;
+    }
+}
+
+
+
+
+/* ----768 Start------- */
+/* ✅ 768px 이하 : 영상 위 → 말풍선 아래로 정렬 (전체 축소) */
+@media (max-width: 768px) {
+
+    .sec3AllBox {
+        min-height: 920px;
+    }
+
+    .sec3VideoSpeechWrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        margin-top: 60px;
+    }
+
+    /* ✅ 영상 래퍼 */
+    .sec3VideoWrapper {
+        width: 100%;
+        max-width: 700px;
+        height: 300px;
+        position: relative;
+        /* margin-top 제거 → 전체 정렬 깔끔하게 */
+        top: -50px;
+        /* 빨간박스+박스래퍼 위로 올리기 */
+    }
+
+    /* ✅ 비디오 */
+    .sec3Autoplay {
+        width: 80%;
+        height: 100%;
+        border-radius: 16px;
+        overflow: hidden;
+        margin: 0 auto;
+        /* 🔥 위 여백 제거 */
+        position: relative;
+    }
+
+    .sec3Video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 16px;
+    }
+
+
+    /*   .sec3AfterTxt {
+        position: absolute;
+        top: 12px;
+        right: 16px;
+        font-size: 16px;
+        color: #fff;
+        z-index: 5;
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        font-weight: 500;
+    } */
+
+    /*       .sec3BeforeTxt {
+    display: block;
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 16px;
+    color: #fff;
+    z-index: 5;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    font-weight: 500;
+  } */
+
+    .toggleText {
+        display: block;
+        color: #fff;
+        font-size: 14px;
+        position: absolute;
+        right: 100%;
+        /* ✅ 토글 왼쪽 바깥으로 */
+        top: 50%;
+        transform: translate(-4px, -50%);
+        z-index: 10;
+        white-space: nowrap;
+        pointer-events: none;
+    }
+
+    /* ✅ 토글 전체 영역 */
+    .sec3ToggleSwitch {
+        position: absolute;
+        bottom: 12px;
+        right: 16px;
+        z-index: 7;
+
+        width: 80px;
+        /* 🔥 조금 넓게 해서 가운데 정렬이 가능하도록 */
+        height: 36px;
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        /* 기본은 왼쪽 정렬 */
+        padding: 3px;
+        box-sizing: border-box;
+        overflow: visible;
+        transition: background-color 0.3s ease;
+    }
+
+    /* ✅ 동그라미: 기본은 왼쪽 끝 */
+    .toggleCircle {
+        width: 30px;
+        height: 30px;
+        background-color: white;
+        border-radius: 50%;
+        transition: transform 0.3s ease;
+        transform: translateX(0);
+        /* 🔥 완전히 왼쪽으로 */
+    }
+
+    /* ✅ After 상태일 때 (토글 ON) */
+    .sec3ToggleSwitch.on .toggleCircle {
+        transform: translateX(44px);
+        /* 🔥 박스 내부 끝까지 */
+    }
+
+    /* ✅ 색상 변경 (선택 사항) */
+    .sec3ToggleSwitch.on {
+        background-color: #f39535;
+    }
+
+
+    /* ✅ 말풍선 영역 */
+    .sec3SpeechWrapper {
+        width: 100%;
+        max-width: 460px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14pㄴx;
+        margin-top: -20px;
+        height: auto;
+        position: relative;
+
+    }
+
+    /* ✅ 말풍선 축소 */
+    .speech {
+        max-width: 100%;
+        font-size: 20px;
+        padding: 15px 13px;
+        line-height: 1.5;
+        margin: 0;
+    }
+
+    /* 왼쪽 말풍선 영역 */
+    .speechLeft {
+        align-self: flex-start;
+        margin-left: -50px;
+        margin-top: -60px;
+        /* 🔥 기존 16px → 음수로 이동 */
+        max-width: 90%;
+    }
+
+    .speechRightWrapper {
+        align-self: flex-end;
+        width: auto;
+        max-width: 90%;
+        position: relative;
+    }
+
+    /* ✅ 오른쪽 말풍선 영역 */
+    .speechRightOverlay {
+        position: absolute;
+        top: 12px;
+        /* 🔥 위로 당김 */
+        left: 105px;
+        width: calc(100% + 20px);
+        /* 🔥 텍스트보다 살짝 넓게 */
+        height: calc(100% + 60px);
+        z-index: 1
+    }
+
+
+    .speechRight {
+        position: relative;
+        z-index: 2;
+
+        margin-left: -85px;
+        top: 23px;
+        width: 293px;
+
+    }
+
+    /* ✅ 따옴표 작게 조정 (좌우 끝으로 이동) */
+    .speechQuoteLeft {
+        position: absolute;
+        top: -18px;
+        left: -140px;
+        /* 🔥 기존 6px → -14px : 왼쪽 끝으로 더 이동 */
+        width: 36px;
+    }
+
+    .speechQuoteRight {
+        position: absolute;
+        bottom: -100px;
+        right: -140px;
+        /* 🔥 기존 6px → -14px : 오른쪽 끝으로 더 이동 */
+        width: 36px;
+    }
+
+
+
+    @media (min-width: 769px) {
+        .sec3AfterTxt {
+            display: none !important;
+        }
+    }
+
+
+
+
+
+    /* 375 Start------------- */
+    /* ✅ 375px 이하 : 폰 화면 최적화 */
+    @media (max-width: 480px) {
+
+        .sec3AllBox {
+            min-height: 750px;
+            /* ✅ 전체 섹션 높이 줄이기 */
+            padding-bottom: 40px;
+        }
+
+        .sec3TitleBox {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            gap: 20px;
+            /* ✅ 기존 60px → 간격 좁힘 */
+            margin-top: 80px;
+            margin-bottom: 0;
+        }
+
+        .sec3Title {
+            font-size: 24px;
+        }
+
+        /* 375 제목 라인 */
+        .sec3Line {
+            position: relative;
+            flex: 2;
+            /* ✅ 기존 flex:1 → 선 길이 늘림 */
+            height: 2px;
+            background-color: white;
+        }
+
+        .sec3Line::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+
+        .sec3VideoSpeechWrapper {
+            gap: 20px;
+            /* ✅ 영상-말풍선 간 간격 줄이기 */
+            margin-top: 40px;
+        }
+
+        /* ✅ 영상 래퍼 */
+        .sec3VideoWrapper {
+            height: 220px;
+            /* ✅ 영상 높이 축소 */
+            top: -30px;
+
+        }
+
+        .sec3Autoplay {
+            width: 100%;
+            /* ✅ 폭 넓게 유지하면서 */
+            height: 100%;
+            border-radius: 12px;
+        }
+
+        .sec3Video {
+            border-radius: 12px;
+        }
+
+        /* ✅ 토글 */
+        .sec3ToggleSwitch {
+            width: 70px;
+            height: 30px;
+            bottom: 8px;
+            right: 12px;
+        }
+
+        .toggleCircle {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* ✅ After 상태일 때 (토글 ON) */
+        .sec3ToggleSwitch.on .toggleCircle {
+            transform: translateX(40px);
+            /* 🔥 박스 내부 끝까지 */
+        }
+
+
+
+        /* ✅ 말풍선 전체 */
+        .sec3SpeechWrapper {
+            max-width: 320px;
+            gap: 10px;
+            margin-top: -10px;
+        }
+
+        /* ✅ 공통 말풍선 텍스트 */
+        .speech {
+            font-size: 16px;
+            /* ✅ 폰트 축소 */
+            padding: 8px 10px;
+            /* ✅ 내부 여백 줄이기 */
+            line-height: 1.4;
+        }
+
+        /* ✅ 왼쪽 말풍선 */
+        .speechLeft {
+            margin-left: 3px;
+            margin-top: -40px;
+            max-width: 95%;
+        }
+
+        .speechLeft,
+        .speechRightWrapper {
+            position: relative;
+        }
+
+        .speechQuoteLeft,
+        .speechQuoteRight {
+            position: absolute;
+            z-index: 10;
+            width: 28px;
+            height: auto;
+        }
+
+        .speechRightWrapper {
+            position: relative;
+            left: -15px;
+        }
+
+        /* 오른쪽 말풍선 */
+        .speechRight {
+            margin-right: 150px;
+            max-width: 235px;
+            width: 100%;
+
+            transform: translateX(-10px);
+            /* 왼쪽으로 40px 이동 */
+        }
+
+
+        /* ✅ 오른쪽 말풍선 배경 (border 이미지) */
+        .speechRightOverlay {
+            top: 14px;
+            left: 95px;
+            width: calc(100% + 10px);
+            height: calc(100% + 50px);
+        }
+
+        .speechLeft,
+        .speechRight {
+            border-radius: 8px;
+        }
+
+
+        /* 왼쪽 따옴표 */
+        .speechQuoteLeft {
+            top: 25px;
+            left: -10px;
+            /* ✅ -100px → 조정 */
+        }
+
+        /* 오른쪽 따옴표 */
+        .speechQuoteRight {
+            bottom: -100px;
+            right: -10px;
+            /* ✅ -100px → 조정 */
+        }
+    }
+}

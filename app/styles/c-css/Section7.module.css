@@ -1,0 +1,371 @@
+.sec7 {
+  width: 100%;
+  background: #86BCDE;
+  min-height: 880px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.sec7Wrap {
+  width: 100%;
+  max-width: 1300px;
+  margin: 80px auto 0 auto;
+  box-sizing: border-box;
+}
+
+.sec7Title {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  font-size: 40px;
+  font-weight: 700;
+  color: #f9f9f9;
+}
+
+.sec7Title span {
+  white-space: nowrap;
+}
+
+.sec7Line {
+  flex: 1;
+  height: 2px;
+  background: #fff;
+  position: relative;
+}
+
+.sec7Line::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: #f9f9f9;
+  border-radius: 50%;
+}
+
+/* 카드 스테이지 */
+.sec7Stage {
+  position: relative;
+  width: min(90vw, 700px);
+  aspect-ratio: 700 / 380;
+  margin: 130px auto 0;
+  justify-content: center;
+}
+
+/* 앞 카드 */
+.sec7Card {
+  position: absolute;
+  inset: 0;
+  background: #F39535;
+  border: 2px solid #f9f9f9;
+  border-radius: 20px;
+  padding: 3.5% 5.5% 6%;
+  box-sizing: border-box;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: pointer;
+}
+
+.sec7Card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* 뒤 카드 */
+.sec7Back {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  border-radius: 20px;
+  transform: translate(40px, 40px) scale(1.02);
+  box-shadow: 0 20px 36px rgba(0, 0, 0, 0.18);
+  z-index: 0;
+  opacity: 1;
+  filter: brightness(1) blur(0);
+  transition: opacity 1.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform, filter;
+}
+
+.sec7Card:hover~.sec7Back {
+  opacity: 0;
+  transform: translate(24px, 24px) scale(0.97);
+  filter: brightness(1.2) blur(4px);
+  box-shadow: 0 10px 16px rgba(0, 0, 0, 0.05);
+}
+
+/* 카드 내부 텍스트 */
+.sec7Texts {
+  color: #fff;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sec7Text1 {
+  font-size: 50px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  line-height: 1.15;
+}
+
+.sec7Text2 {
+  font-size: 22px;
+  letter-spacing: -1px;
+}
+
+/* 화살표(원) */
+.sec7Circles {
+  position: absolute;
+  right: 80px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  color: #f9f9f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* 원 장식 */
+.sec7Circle1,
+.sec7Circle2,
+.sec7Circle3 {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid #f9f9f9;
+}
+
+@keyframes blinkCircle1 {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes blinkCircle2 {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes blinkCircle3 {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.sec7Circle1 {
+  width: 120px;
+  height: 120px;
+  animation: blinkCircle1 2.4s infinite ease-in-out;
+  animation-delay: 0.6s;
+}
+
+.sec7Circle2 {
+  width: 100px;
+  height: 100px;
+  animation: blinkCircle2 2.4s infinite ease-in-out;
+  animation-delay: 0.3s;
+}
+
+.sec7Circle3 {
+  width: 80px;
+  height: 80px;
+  animation: blinkCircle3 2.4s infinite ease-in-out;
+  cursor: pointer;
+}
+
+/* 초기 숨김 상태 */
+.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  visibility: hidden;
+}
+
+/* 제목 fade-in */
+.fadeInTitle {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  transition: opacity 0.7s ease, transform 0.5s ease;
+}
+
+/* 카드 fade-in, delay 적용 */
+.fadeInStage {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  transition: opacity 0.7s ease 0.2s, transform 0.5s ease 0.5s;
+}
+
+/* ===================================================== */
+/* 768px 이하 */
+@media (max-width: 769px) {
+  .sec7 {
+    min-height: 720px;
+    height: auto;
+    padding: 60px 0;
+  }
+
+  .sec7Title {
+    padding: 0 24px;
+    font-size: 28px;
+  }
+
+  .sec7Stage {
+    width: 80%;
+    max-width: 560px;
+    aspect-ratio: 700 / 380;
+    margin-top: 100px;
+  }
+
+  .sec7Card {
+    border-radius: 16px;
+    padding: 32px 36px 40px;
+  }
+
+  .sec7Back {
+    transform: translate(30px, 30px) scale(1.02);
+    border-radius: 12px;
+  }
+
+  .sec7Texts .sec7Text1 {
+    font-size: 36px;
+  }
+
+  .sec7Texts .sec7Text2 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sec7Circles {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .sec7Circle1 {
+    width: 100px;
+    height: 100px;
+    animation: blinkCircle1 2.4s infinite ease-in-out;
+    animation-delay: 0.6s;
+  }
+
+  .sec7Circle2 {
+    width: 85px;
+    height: 85px;
+    animation: blinkCircle2 2.4s infinite ease-in-out;
+    animation-delay: 0.3s;
+  }
+
+  .sec7Circle3 {
+    width: 70px;
+    height: 70px;
+    animation: blinkCircle3 2.4s infinite ease-in-out;
+    cursor: pointer;
+  }
+}
+
+/* ----------------------------------- */
+/* 375px 이하 */
+@media (max-width: 376px) {
+  .sec7Stage {
+    width: 90%;
+    max-width: 320px;
+    aspect-ratio: 700 / 380;
+    margin-top: 80px;
+  }
+
+  .sec7Title {
+    padding: 0 16px;
+    font-size: 20px;
+  }
+
+  .sec7Card {
+    border-radius: 10px;
+    padding: 24px 28px 30px;
+  }
+
+  .sec7Back {
+    transform: translate(20px, 20px) scale(1.02);
+    border-radius: 10px;
+  }
+
+  .sec7Texts .sec7Text1 {
+    font-size: 20px;
+  }
+
+  .sec7Texts .sec7Text2 {
+    font-size: 14px;
+  }
+
+  .sec7Card .sec7Circles {
+    right: 30px;
+    width: 15px;
+    height: 30px;
+  }
+
+  .sec7Circle1,
+  .sec7Circle2,
+  .sec7Circle3 {
+    border: 1px solid #f9f9f9;
+  }
+
+  .sec7Circle1 {
+    width: 40px;
+    height: 40px;
+    animation: blinkCircle1 2.4s infinite ease-in-out;
+    animation-delay: 0.6s;
+  }
+
+  .sec7Circle2 {
+    width: 30px;
+    height: 30px;
+    animation: blinkCircle2 2.4s infinite ease-in-out;
+    animation-delay: 0.3s;
+  }
+
+  .sec7Circle3 {
+    width: 20px;
+    height: 20px;
+    animation: blinkCircle3 2.4s infinite ease-in-out;
+    cursor: pointer;
+  }
+}

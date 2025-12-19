@@ -1,0 +1,42 @@
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .pay-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .pay-right {
+    position: static;
+  }
+}
+
+@media (max-width: 560px) {
+  .pay-item {
+    grid-template-columns: 96px 1fr;
+  }
+
+  .pay-thumb {
+    width: 96px;
+    height: 96px;
+  }
+
+  .pay-point-use {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pay-point-use .pay-btn-outline {
+    grid-column: span 2;
+  }
+
+  .pay-field {
+    grid-template-columns: 90px 1fr;
+  }
+
+  .pay-methods {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pay-final-price {
+    font-size: 24px;
+  }
+}

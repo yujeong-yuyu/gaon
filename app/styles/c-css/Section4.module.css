@@ -1,0 +1,797 @@
+.sec4AllBox {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  /* ✅ 세로 정렬을 위쪽으로 */
+  justify-content: center;
+  background-color: #f9f9f9;
+  padding-top: 80px;
+  /* ✅ 약간의 위 여백 주면 자연스러움 */
+}
+
+.sec4Header {
+  width: 100%;
+  height: 80px;
+  background-color: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sec4Inner1300 {
+  width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* 타이틀 */
+.sec4TitleBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.sec4Title {
+  font-size: 34px;
+  font-weight: 700;
+  color: #2b2b2b;
+}
+
+.sec4Subtitle {
+  font-size: 16px;
+  color: #999;
+  margin-top: -25px;
+}
+
+/* ✅ 라인: 기본적으로 제목 옆 */
+
+.sec4Line {
+  flex: 1;
+  height: 2px;
+  background-color: #f39535;
+  position: relative;
+  top: -5px;
+  /* 🔥 기존 -15px → -6px: 살짝만 위로 */
+}
+
+.sec4Line::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: #f39535;
+  border-radius: 50%;
+}
+
+
+/* 콘텐츠 */
+.sec4Content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/* 왼쪽 박스 */
+.sec4LeftBox {
+  width: 50%;
+}
+
+.sec4WeatherBox {
+  background: #fff;
+  border-radius: 30px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weatherInfo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.weatherRowTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.weatherRowTop p {
+  display: flex;
+  align-items: center;
+  /* ← 아이콘과 텍스트를 수직 가운데로 정렬 */
+  gap: 6px;
+  /* 아이콘과 텍스트 사이 간격 */
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.weatherRowMid {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.weatherRowBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.weatherRowMid,
+.weatherRowBottom {
+  margin-left: 40px;
+  /* 🔹 동일하게 들여쓰기 */
+}
+
+.weatherInfo p {
+  font-size: 18px;
+  color: #333;
+  margin: 0;
+}
+
+.goodAir {
+  color: green;
+  font-weight: bold;
+}
+
+.walkIndex {
+  color: #f39535;
+  font-weight: 700;
+}
+
+.weatherInfo .mapLocation {
+  font-size: 36px;
+  font-weight: 700;
+  color: #2b2b2b;
+}
+
+/* 지도 */
+.mapBox {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.mapBox img {
+  width: 100%;
+  max-width: 260px;
+}
+
+/* 오른쪽 박스 */
+.sec4RightBox {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+}
+
+/* 검색창 */
+.sec4SearchBox {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+
+.sec4SearchBox input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  color: #555;
+  text-align: left;
+  /* ✅ 커서는 왼쪽 시작 */
+}
+
+/* ✅ placeholder만 가운데 */
+.sec4SearchBox input::placeholder {
+  text-align: center;
+  color: #999;
+}
+
+.searchIcon {
+  color: #f39535;
+  font-size: 22px;
+  margin-right: 8px;
+  position: relative;
+  top: 1px;
+}
+
+/* 가로 슬라이드 */
+.horizontalScrollGrid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(2, auto);
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+}
+
+.horizontalScrollGrid>* {
+  scroll-snap-align: start;
+}
+
+.horizontalScrollGrid:active {
+  cursor: grabbing;
+}
+
+.horizontalScrollGrid::-webkit-scrollbar {
+  display: none;
+}
+
+/* 카드 */
+.placeCard {
+  width: 235px;
+  background: transparent;
+  text-align: center;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+
+.imgBox {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(80, 80, 80, 0.7);
+  color: white;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+/* 장소 이름 */
+.placeName {
+  font-weight: 600;
+  color: #333;
+  font-size: 16px;
+}
+
+.sec4SlideWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  margin-top: 30px;
+  /* ✅ 검색창과 슬라이드 사이 여백 */
+}
+
+.horizontalScrollRow {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+}
+
+.horizontalScrollRow:nth-of-type(2) {
+  margin-top: 10px;
+  /* ✅ 두 번째 슬라이드만 살짝 아래로 */
+}
+
+.horizontalScrollRow:active {
+  cursor: grabbing;
+}
+
+.horizontalScrollRow::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* 장소 검색 효과------- start*/
+
+/* 🔹 검색 시 강조 효과 (텍스트 색상 + 두께만 변경) */
+.highlighted .placeName {
+  color: #F39535 !important;
+  font-weight: 700;
+  transition: all 0.3s ease-in-out;
+}
+
+/* 🔹 자연스럽게 원복 */
+.placeName {
+  transition: all 0.3s ease-in-out;
+}
+
+
+
+/* 장소 검색 효과-------end*/
+
+
+
+
+
+
+
+/* 지도 클릭 핫존 */
+.mapContainer {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+}
+
+.mapImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+/* ✅ 지도 위 클릭 영역 */
+.mapHotspot {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(243, 149, 53, 0.3);
+  border: 2px solid rgba(243, 149, 53, 0.7);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  transform: translate(-50%, -50%);
+  /* <- 추가: top/left를 중앙 기준으로 */
+}
+
+.mapHotspot:hover {
+  transform: translate(-50%, -50%) scale(1.2);
+  /* hover 시 중앙 유지하면서 확대 */
+}
+
+/* ✅ 선택된 지역 */
+.activeHotspot {
+  background: rgba(243, 149, 53, 0.9);
+  border-color: rgba(243, 149, 53, 1);
+  box-shadow: 0 0 8px rgba(243, 149, 53, 0.8);
+}
+
+
+
+/* --------------------------- */
+/* ✅ 장소 상세 모달 (반응형 고정 크기) */
+/* --------------------------- */
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modalContent {
+  width: 1200px;
+  max-width: 900px;
+  height: 400px;
+  max-height: 650px;
+  background: #f9f9f9;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  padding: 40px;
+  gap: 40px;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.closeButton {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  transition: transform 0.2s ease;
+}
+
+.closeButton:hover {
+  transform: scale(1.1);
+}
+
+/* ✅ 왼쪽 영역 크기 고정 + 반응형 유지 */
+.modalLeft {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  gap: 30px;
+}
+
+/* ✅ 제목 */
+.modalTitle {
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 700;
+  color: #2b2b2b;
+}
+
+/* ✅ 이미지 크기 일정 + 반응형 비율 유지 */
+.modalMap {
+  width: 100%;
+  height: 50vh;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ 오른쪽 영역 */
+.modalRight {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  overflow-y: auto;
+  margin-top: 126px;
+}
+
+.modalRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.modalLabel {
+  width: 70px;
+  font-weight: 700;
+  color: #333;
+}
+
+.modalValue {
+  color: #555;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* --------------------------- */
+/* ✅ 1300px 이하 (가로 유지, 요소만 축소) */
+/* --------------------------- */
+@media (max-width: 1300px) {
+
+  .sec4Inner1300 {
+    width: 95%;
+    gap: 30px;
+  }
+
+  .sec4Title {
+    font-size: 30px;
+  }
+
+
+  .sec4Subtitle {
+    font-size: 15px;
+  }
+
+  .sec4Content {
+    gap: 30px;
+  }
+
+  .sec4LeftBox {
+    width: 45%;
+  }
+
+  .sec4RightBox {
+    width: 55%;
+  }
+
+  .sec4WeatherBox {
+    padding: 24px;
+  }
+
+  .mapContainer {
+    max-width: 260px;
+  }
+
+  .weatherInfo .mapLocation {
+    font-size: 30px;
+  }
+
+  .sec4SearchBox {
+    max-width: 600px;
+  }
+
+  .placeCard {
+    width: 220px;
+  }
+
+  .imgBox {
+    height: 170px;
+  }
+
+  .modalContent {
+    width: 600px;
+    max-width: 600px;
+  }
+}
+
+/* --------------------------- */
+/* ✅ 768px 이하 (세로 스택) */
+/* --------------------------- */
+@media (max-width: 768px) {
+
+  .sec4AllBox {
+    padding-top: 60px;
+  }
+
+
+  .sec4Title {
+    font-size: 32px;
+  }
+
+  .sec4TitleBox {
+    display: flex;
+    flex-direction: row;
+    /* 절대 column으로 바꾸지 않음 — 레이아웃이 깨지는 원인 차단 */
+    align-items: flex-start;
+    /* 제목과 라인을 같은 라인에 두되, 내부 컨텐츠는 아래로 흐르게 허용 */
+    gap: 12px;
+    flex-wrap: wrap;
+    /* 제목이 길면 줄바꿈 허용 */
+  }
+
+  .sec4Line {
+    flex: 1;
+    /* ✅ 가용 너비만큼 늘어나도록 */
+    width: auto;
+    /* ✅ 고정폭 해제 */
+    top: 17px;
+    /* 살짝 아래 정렬 */
+    margin-left: 12px;
+    /* 타이틀과 약간 간격 */
+    margin-top: 0;
+  }
+
+  .sec4Subtitle {
+    font-size: 14px;
+  }
+
+  .sec4Content {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .sec4LeftBox,
+  .sec4RightBox {
+    width: 100%;
+  }
+
+  .sec4WeatherBox {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* ✅ 지도: 비율 유지 + 축소 */
+  .mapContainer {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    /* 높이 자동 조정 */
+    object-fit: contain;
+    /* 잘리지 않도록 */
+  }
+
+  .weatherInfo .mapLocation {
+    font-size: 26px;
+  }
+
+  .placeCard {
+    width: 200px;
+  }
+
+  .imgBox {
+    height: 150px;
+  }
+
+  .sec4SearchBox {
+    width: 100%;
+    padding: 12px 16px;
+  }
+
+  .modalContent {
+    width: 600px;
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modalContent {
+    flex-direction: column;
+    width: 375px;
+    height: auto;
+    /* 🔥 고정 높이 제거 */
+    max-height: none;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  /* ✅ 지도/이미지 영역 */
+  .modalLeft {
+    width: 100%;
+    margin-top: 0;
+    align-items: center;
+  }
+
+  .modalMap {
+    width: 100%;
+    height: 80px;
+    /* 🔥 지도 높이 확 줄임 */
+    aspect-ratio: 3 / 1;
+    /* ✅ 직사각형 비율 유지 */
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  /* ✅ 오른쪽(텍스트) 영역 */
+  .modalRight {
+    width: 100%;
+    gap: 10px;
+    max-height: none;
+    /* 🔥 스크롤 완전 제거 */
+    overflow: visible;
+    /* 🔥 내부 스크롤 막기 */
+  }
+
+  .modalTitle {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  .modalRow {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .modalLabel {
+    font-size: 13px;
+  }
+
+  .modalValue {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .closeButton {
+    top: 8px;
+    right: 12px;
+    font-size: 22px;
+  }
+
+  .sec4Line {
+    display: none;
+  }
+
+  .sec4SearchBox {
+    width: 420px;
+    padding: 12px 16px;
+  }
+}
+
+/* --------------------------- */
+/* ✅ 375px 이하 (소형 모바일) */
+/* --------------------------- */
+@media (max-width: 375px) {
+
+  /* ✅ 모달 전체 */
+  .modalContent {
+    flex-direction: column;
+    height: auto;
+    /* 🔥 고정 높이 제거 */
+    max-height: none;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  /* ✅ 지도/이미지 영역 */
+  .modalLeft {
+    width: 100%;
+    margin-top: 0;
+    align-items: center;
+  }
+
+  .modalMap {
+    width: 100%;
+    height: 80px;
+    /* 🔥 지도 높이 확 줄임 */
+    aspect-ratio: 3 / 1;
+    /* ✅ 직사각형 비율 유지 */
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  /* ✅ 오른쪽(텍스트) 영역 */
+  .modalRight {
+    width: 100%;
+    gap: 10px;
+    max-height: none;
+    /* 🔥 스크롤 완전 제거 */
+    overflow: visible;
+    /* 🔥 내부 스크롤 막기 */
+  }
+
+  .modalTitle {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  .modalRow {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .modalLabel {
+    font-size: 13px;
+  }
+
+  .modalValue {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .closeButton {
+    top: 8px;
+    right: 12px;
+    font-size: 22px;
+  }
+
+  .sec4Line {
+    display: none;
+  }
+
+  .sec4SearchBox {
+    width: 320px;
+    padding: 12px 16px;
+  }
+}

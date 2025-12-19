@@ -1,0 +1,407 @@
+.container {
+    max-width: 1300px;
+    width: 90%;
+    margin: 120px auto 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    font-family: "Pretendard", sans-serif;
+}
+
+/* 제목 + 라인 정렬 */
+.titleBox {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    /* 제목과 선 사이 간격 */
+    margin-bottom: 20px;
+}
+
+/* 제목 */
+.title {
+    font-size: 40px;
+    font-weight: 600;
+    color: #F39535;
+    white-space: nowrap;
+}
+
+/* 제목 옆 라인 */
+.titleLine {
+    position: relative;
+    flex: 1;
+    height: 2px;
+    background-color: #F39535;
+}
+
+/* 동그라미 */
+.titleLine::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: #F39535;
+    border-radius: 50%;
+}
+
+
+.profileBox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.profileCircle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+}
+
+.username {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.formWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ✅ 기본 입력줄 */
+.inputRow {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+/* ✅ 제목 입력칸 */
+.titleInput {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.selectBox {
+    width: 160px;
+    height: 42px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 10px 36px 10px 12px;
+    font-size: 15px;
+    color: #555;
+    background-color: #fff;
+    cursor: pointer;
+
+    /* 🔥 브라우저 기본 select 화살표 완전 제거 */
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+
+    /* 🔥 주황색 세모 SVG - 모바일에서도 고정 표시 */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f7931e' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat !important;
+    background-position: right 10px center !important;
+    background-size: 24px !important;
+}
+
+.selectBox:hover {
+    border-color: #f7931e;
+}
+
+
+
+.textarea {
+    min-height: 280px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 16px;
+    resize: none;
+    font-size: 15px;
+    font-family: "Pretendard";
+}
+
+/* ✅ 이미지 업로드 */
+.imageUpload {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.imageBox {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fafafa;
+    transition: all 0.2s ease;
+}
+
+/* + 박스 (기본 상태) */
+.addBox {
+    border: 2px dashed #f7931e;
+}
+
+.plusSign {
+    font-size: 36px;
+    color: #f7931e;
+    line-height: 1;
+}
+
+/* 이미지가 있을 때는 테두리 제거 */
+.filledBox {
+    border: none;
+}
+
+/* 이미지 미리보기 */
+.imageBox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 삭제 버튼 */
+.deleteBtn {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 18px;
+    height: 18px;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 16px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.deleteBtn:hover {
+    background-color: rgba(247, 147, 30, 0.9);
+}
+
+
+.submitBtn {
+    width: 140px;
+    height: 46px;
+    background-color: #f7931e;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
+    align-self: center;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+
+
+/* ✅ 분기점 1300px 이하 */
+@media (max-width: 1300px) {
+    .container {
+        width: 92%;
+    }
+
+    .titleInput {
+        font-size: 14.5px;
+    }
+
+    /* 🔥 flex-wrap 제거하고 한 줄 유지 */
+    .inputRow {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+
+}
+
+
+/* ✅ 분기점 768px 이하 */
+@media (max-width: 768px) {
+    .container {
+        width: 94%;
+    }
+
+    .profileBox {
+        gap: 8px;
+    }
+
+    .inputRow {
+        gap: 8px;
+    }
+
+    .titleInput {
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+
+    .selectBox {
+        width: 140px;
+        height: 38px;
+        font-size: 14px;
+        padding: 8px 30px 8px 10px;
+        background-size: 22px !important;
+    }
+
+
+
+    .textarea {
+        min-height: 240px;
+    }
+
+    .imageBox {
+        width: 80px;
+        height: 80px;
+    }
+
+    .submitBtn {
+        width: 120px;
+        height: 42px;
+        font-size: 15px;
+    }
+}
+
+/* 📱 모바일용 헤더 (375px 이하에서만 표시) */
+.mobileHeaderRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.profileBoxMobile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.selectBoxMobile {
+    width: 120px;
+    height: 36px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* 제목 input 모바일 버전 */
+.titleInputMobile {
+    width: 332px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+/* ✅ 게시판 선택 (모바일에서도 동일한 디자인 유지) */
+.selectBoxMobile {
+    width: 120px;
+    height: 38px;
+    font-size: 14px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 36px;
+
+    /* ▼ 주황색 세모 화살표 */
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%23f7931e' height='26' viewBox='0 0 24 24' width='26' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 24px;
+}
+
+.selectBoxMobile:hover {
+    border-color: #f7931e;
+}
+
+/* ✅ 이미지 첨부 박스 — 한 줄로 나열 (줄바꿈 X) */
+.imageUpload {
+    display: flex;
+    flex-wrap: nowrap;
+    /* 🔥 한 줄 유지 */
+    overflow-x: auto;
+    /* 🔥 넘치면 가로 스크롤 */
+    gap: 10px;
+    scrollbar-width: none;
+    /* Firefox 스크롤바 숨김 */
+}
+
+.imageUpload::-webkit-scrollbar {
+    display: none;
+    /* ✅ 스크롤바 숨김 */
+}
+
+.imageBox {
+    flex-shrink: 0;
+    /* ✅ 줄바꿈 방지 */
+    width: 80px;
+    height: 80px;
+}
+
+.addBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    color: #f7931e;
+    border: 2px dashed #f7931e;
+    background-color: #fff7ef;
+}
+
+
+
+@media (max-width: 375px) {
+    .imageBox {
+        width: 70px;
+        height: 70px;
+    }
+
+    .deleteBtn {
+        width: 16px;
+        height: 16px;
+        font-size: 12px;
+    }
+
+
+    /* ✅ 게시판 선택 (모바일에서도 동일한 디자인 유지) */
+    .selectBox {
+        width: 120px;
+        height: 36px;
+        font-size: 13.5px;
+        padding: 8px 30px 8px 10px;
+        background-size: 20px !important;
+    }
+
+    .selectBox:hover {
+        border-color: #f7931e;
+    }
+}
+
+/* ✅ 376px 이상에서는 모바일 헤더 숨김 */
+@media (min-width: 376px) {
+    .mobileHeaderRow {
+        display: none;
+    }
+}

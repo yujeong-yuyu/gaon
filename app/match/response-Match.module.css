@@ -1,0 +1,481 @@
+@media (min-width: 1099px) and (max-width: 1499px) {
+    .doginfoMT {
+        width: 1000px;
+        padding: 0 20px;
+    }
+
+    .dititleMT {
+        width: 100%;
+        margin: 40px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 20px;
+        font-weight: bold;
+        color: #2b2b2b;
+    }
+
+    .titlelineMT {
+        width: 800px;
+    }
+
+    .infocardboxMT {
+        width: 1000px;
+        height: auto;
+        gap: 20px;
+    }
+
+    .cardimgMT {
+        width: 342.5px;
+        height: 450px;
+    }
+
+    .cardimgMT:nth-child(4) {
+        display: none;
+    }
+
+    .titledotMT {
+        top: 7px;
+        left: 195px;
+    }
+}
+
+@media (min-width: 870px) and (max-width: 1099px) {
+    .introMT {
+        width: 60%;
+        min-height: 600px;
+        margin: 30px auto 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .introMT>img {
+        width: 300px;
+        height: 300px;
+        margin-bottom: 30px;
+    }
+
+    .introMT>span {
+        font-size: 30px;
+        color: #2b2b2b;
+        font-weight: bold;
+    }
+
+    .startMT {
+        width: 130px;
+        height: 40px;
+        background-color: #F39535;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #f9f9f9;
+        font-size: 20px;
+        font-weight: 500;
+        margin-top: 50px;
+        cursor: pointer;
+        box-shadow: 1px 1px 3px #999;
+        transition: all 0.2s ease;
+    }
+
+    .qstMT {
+        min-height: 700px;
+    }
+
+    .qstcontainerMT {
+        width: 90%;
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        top: 100px;
+    }
+
+    .qstcontainerMT>p {
+        font-size: 40px;
+    }
+
+    .selectboxMT>div {
+        width: 80%;
+        margin: 0 auto;
+        font-size: 20px;
+    }
+
+    .finalMT {
+        padding-top: 0;
+    }
+
+    .finalText {
+        font-size: 40px;
+        margin-top: 200px;
+    }
+
+    .downarrowMT {
+        display: block;
+        margin: 0 auto;
+        width: 60px;
+        cursor: pointer;
+        animation: floatArrow 0.8s ease-in-out infinite alternate;
+    }
+
+    .spaceboxMT {
+        height: 236px;
+    }
+
+    .resulttitleMT {
+        margin-bottom: 10px;
+    }
+
+    .resultMT>img {
+        width: 400px;
+        height: 400px;
+        margin-bottom: 20px;
+    }
+
+    .percentMT {
+        margin-bottom: 13px;
+    }
+
+    .shortinfoMT {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .maininfoMT {
+        width: 500px;
+        height: auto;
+        gap: 15px;
+        flex-direction: column;
+    }
+
+    .graphMT {
+        width: 100%;
+        height: 235px;
+    }
+
+    .gboxMT>img {
+        width: 160px;
+        height: 160px;
+    }
+
+    .gboxMT>span {
+        font-size: 17px;
+    }
+
+    .g1MT,
+    .g4MT {
+        font-size: 17px;
+    }
+
+    .g1MT {
+        margin-bottom: -8px;
+    }
+
+    .g2MT {
+        margin-right: -110px;
+    }
+
+    .g3MT {
+        margin-left: -110px;
+    }
+
+    .g4MT {
+        margin-top: -8px;
+    }
+
+    .pnboxMT {
+        width: 100%;
+        height: auto;
+        gap: 15px;
+    }
+
+    .pMT,
+    .nMT {
+        height: 160px;
+    }
+
+    .pMT>p,
+    .nMT>p {
+        font-size: 25px;
+        margin: 10px 0;
+    }
+
+    .pMT>span,
+    .nMT>span {
+        line-height: 150%;
+        font-size: 18px;
+    }
+
+    .doginfoMT {
+        width: 800px;
+    }
+
+    .dititleMT {
+        width: 100%;
+        margin: 40px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 20px;
+        font-weight: bold;
+        color: #2b2b2b;
+    }
+
+    .titlelineMT {
+        width: 611px;
+    }
+
+    .infocardboxMT {
+        width: 100%;
+        height: auto;
+        gap: 20px;
+    }
+
+    .cardimgMT {
+        width: 342.5px;
+        height: 450px;
+    }
+
+    .cardinfoMT>p {
+        margin: 20px 0 0 25px;
+        font-size: 18px;
+    }
+
+    .cardimgMT:nth-child(4) {
+        display: none;
+    }
+
+    .pagenationMT {
+        margin-bottom: 80px;
+    }
+
+    .titledotMT {
+        top: 7px;
+        left: 185px;
+    }
+}
+
+@media (min-width: 375px) and (max-width: 869px) {
+    .introMT {
+        width: 60%;
+        min-height: 600px;
+        margin: 20px auto 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .introMT>img {
+        width: 250px;
+        height: 250px;
+        margin-bottom: 30px;
+    }
+
+    .introMT>span {
+        font-size: 23px;
+        color: #2b2b2b;
+        font-weight: bold;
+    }
+
+    .startMT {
+        width: 130px;
+        height: 40px;
+        background-color: #F39535;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #f9f9f9;
+        font-size: 20px;
+        font-weight: 500;
+        margin-top: 50px;
+        cursor: pointer;
+        box-shadow: 1px 1px 3px #999;
+        transition: all 0.2s ease;
+    }
+
+    .qstMT {
+        min-height: 700px;
+    }
+
+    .qstcontainerMT {
+        width: 90%;
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        top: 100px;
+    }
+
+    .qstcontainerMT>span {
+        font-size: 16px;
+    }
+
+    .qstcontainerMT>p {
+        font-size: 23px;
+    }
+
+    .selectboxMT>div {
+        width: 95%;
+        margin: 0 auto;
+        font-size: 14px;
+    }
+
+    .finalMT {
+        width: 100%;
+        padding-top: 0;
+        margin: 0 auto;
+    }
+
+    .finalText {
+        font-size: 25px;
+        margin-top: 200px;
+    }
+
+    .downarrowMT {
+        display: block;
+        margin: 0 auto;
+        width: 50px;
+        cursor: pointer;
+        animation: floatArrow 0.8s ease-in-out infinite alternate;
+    }
+
+    .spaceboxMT {
+        height: 100px;
+    }
+
+    .resulttitleMT {
+        margin-bottom: 10px;
+    }
+
+    .resultMT>img {
+        width: 343px;
+        height: 400px;
+        margin-bottom: 20px;
+    }
+
+    .percentMT {
+        margin-bottom: 13px;
+        font-size: 20px;
+    }
+
+    .boldMT {
+        font-size: 25px;
+        font-weight: bold;
+    }
+
+    .shortinfoMT {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .maininfoMT {
+        width: 343px;
+        height: auto;
+        gap: 15px;
+        flex-direction: column;
+    }
+
+    .graphMT {
+        width: 100%;
+        height: 235px;
+    }
+
+    .gboxMT>img {
+        width: 160px;
+        height: 160px;
+    }
+
+    .gboxMT>span {
+        font-size: 17px;
+    }
+
+    .g1MT,
+    .g4MT {
+        font-size: 17px;
+    }
+
+    .g1MT {
+        margin-bottom: -8px;
+    }
+
+    .g2MT {
+        margin-right: -40px;
+    }
+
+    .g3MT {
+        margin-left: -40px;
+    }
+
+    .g4MT {
+        margin-top: -8px;
+    }
+
+    .pnboxMT {
+        width: 100%;
+        height: auto;
+        gap: 15px;
+    }
+
+    .pMT,
+    .nMT {
+        height: 160px;
+    }
+
+    .pMT>p,
+    .nMT>p {
+        font-size: 20px;
+        margin: 20px 0;
+    }
+
+    .pMT>span,
+    .nMT>span {
+        line-height: 150%;
+        font-size: 15px;
+        margin-left: -65px;
+    }
+
+    .doginfoMT {
+        width: 343px;
+    }
+
+    .dititleMT {
+        width: 100%;
+        margin: 40px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 20px;
+        font-weight: bold;
+        color: #2b2b2b;
+    }
+
+    .titlelineMT {
+        width: 163px;
+    }
+
+    .infocardboxMT {
+        width: 100%;
+        height: auto;
+        gap: 20px;
+        justify-content: center;
+        display: flex; /* flex로 카드 정렬 */
+        flex-wrap: wrap;
+    }
+
+    .cardimgMT {
+        width: 300px;
+        height: 350px;
+    }
+
+    .cardinfoMT>p {
+        margin: 20px 0 0 45px;
+        font-size: 18px;
+    }
+
+    .titledotMT {
+        top: 7px;
+        left: 175px;
+    }
+}

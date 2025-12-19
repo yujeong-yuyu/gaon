@@ -1,0 +1,289 @@
+.cart2Page {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 120px 20px;
+  background: #f9f9f9;
+}
+
+.cart2Title {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 24px;
+}
+
+.cart2Title>span {
+  font-size: 35px;
+  font-weight: 800;
+  color: #2B2B2B;
+}
+
+.cart2TitleLine {
+  flex: 1;
+  height: 2px;
+  background: #F39535;
+  position: relative;
+}
+
+.cart2TitleLine::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: #F39535;
+  border-radius: 50%;
+}
+
+.cart2Grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 32px;
+}
+
+/* left */
+.cart2SelectAll {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 10px 0 16px;
+  font-size: 20px;
+  color: #475569;
+  padding: 0 10px;
+}
+
+/* 체크박스 크기 키우기 */
+.cart2SelectAll input[type="checkbox"],
+.cart2RowHead input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  /* 전체 크기 확대 (브라우저별 fallback) */
+  margin-right: 6px;
+}
+
+
+.cart2Panel {
+  background: #F3F4F6;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 16px 18px;
+}
+
+.cart2Row {
+  padding: 14px 4px;
+}
+
+.cart2Row:first-child {
+  padding: 8px 4px 14px;
+}
+
+.cart2Row:last-child {
+  padding: 14px 4px 8px;
+}
+
+.cart2RowDivided {
+  border-top: 1px solid #e5e7eb;
+}
+
+.cart2RowHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #111827;
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-size: 20px;
+  padding-bottom: 14px;
+}
+
+.cart2RowBody {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.cart2Thumb {
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.cart2Thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cart2Info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cart2Name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #143F70;
+}
+
+.cart2RowBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #e5e7eb;
+  color: #475569;
+  font-size: 18px;
+  gap: 50px;
+}
+
+.cart2RowBottom strong {
+  color: #111827;
+}
+
+.cart2RowBottom div {
+  padding: 10px 0;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* buttons */
+.cart2LeftButtons {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.cart2LeftBtn {
+  border: 1px solid #86BCDE;
+  background: #fff;
+  color: #86BCDE;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 10px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cart2LeftBtn:hover {
+  background: #86BCDE;
+  color: #fff;
+  transition: 0.15s;
+}
+
+/* right */
+.cart2Right {
+  position: sticky;
+  top: 24%;
+  align-self: start;
+}
+
+.cart2SummaryBox {
+  background: #EAF4FA;
+  border: 1px solid #d4e4ee;
+  border-radius: 14px;
+  padding: 24px;
+}
+
+.cart2SummaryTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #143f70;
+  padding: 0 0 20px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.9);
+}
+
+.cart2SummaryList {
+  margin: 0;
+  padding: 10px 0;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.9);
+}
+
+.cart2SummaryRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 16px;
+}
+
+.cart2SummaryFinal {
+  text-align: right;
+}
+
+.cart2SummaryFinalLabel {
+  color: #143F70;
+  font-weight: 500;
+  font-size: 22px;
+  margin-top: 20px;
+}
+
+.cart2SummaryFinalPrice {
+  color: #143F70;
+  font-weight: 800;
+  font-size: 35px;
+}
+
+.cart2SummaryBtn {
+  width: 100%;
+  height: 56px;
+  border: none;
+  border-radius: 8px;
+  background: #86BCDE;
+  color: #fff;
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.cart2SummaryBtn:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.cart2Guard {
+  margin: 10px 0 20px;
+  padding: 14px 16px;
+  border: 1px dashed #d4e4ee;
+  background: #f6fbfe;
+  border-radius: 10px;
+  color: #143F70;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cart2LoginBtn {
+  border: 1px solid #143F70;
+  background: #143F70;
+  color: #fff;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cart2LoginBtn:hover {
+  opacity: .9;
+}
+
+@media (max-width: 1024px) {
+  .cart2Grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cart2Right {
+    position: static;
+  }
+}

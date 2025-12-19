@@ -1,0 +1,364 @@
+/* =========================
+   AdoptApply.css (aa-*)
+   ========================= */
+
+/* 베이스 */
+.aa-wrap {
+  width: 100%;
+  margin: 0 auto;
+  background: #f9f9f9;
+  color: #222;
+  /* 헤더와 겹치지 않게 위쪽 여백 확보 */
+  padding-top: calc(var(--header-h, 80px) + 20px);
+}
+
+.aa-section {
+  width: 100%;
+  /* 본문 컨테이너 */
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 48px 20px 80px;
+  box-sizing: border-box;
+}
+
+/* 레이아웃 그리드 (→ grid-areas로 순서 제어) */
+.aa-grid {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  /* 폼 : 카드 */
+  grid-template-areas: "form pet";
+  /* 데스크톱 순서 */
+  gap: 50px;
+  align-items: start;
+  /* ← 중요 */
+  overflow: visible;
+  /* ← 중요 */
+}
+
+.aa-form {
+  grid-area: form;
+}
+
+/* ✅ 영역 지정 */
+.aa-pet {
+  grid-area: pet;
+}
+
+/* ✅ 영역 지정 */
+
+/* 제목 */
+.aa-titles {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto 80px;
+}
+
+.aa-title {
+  font-size: 35px;
+  font-weight: bold;
+  color: #2b2b2b;
+}
+
+.aa-title-line {
+  flex: 1;
+  height: 3px;
+  background-color: #f39535;
+  position: relative;
+}
+
+.aa-title-line::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: #F39535;
+  border-radius: 50%;
+}
+
+/* ===== 폼 ===== */
+.aa-agrees {
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+.aa-form {
+  background: #f9f9f9;
+}
+
+.aa-field {
+  margin-bottom: 16px;
+}
+
+.aa-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.aa-req {
+  margin-left: 4px;
+  color: #F39535;
+  font-weight: 700;
+}
+
+.aa-helper {
+  margin-left: 6px;
+  font-size: 12px;
+  color: #999;
+}
+
+/* 입력 공통 */
+.aa-input,
+.aa-textarea,
+.aa-select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  font-size: 14px;
+  border: 1px solid #e3e3e3;
+  border-radius: 5px;
+  background: #fff;
+  outline: none;
+  transition: border-color .15s, box-shadow .15s, background-color .2s;
+  font-family: 'Pretendard';
+}
+
+.aa-input:focus,
+.aa-textarea:focus,
+.aa-select:focus {
+  border-color: #f39535;
+  box-shadow: 0 0 0 3px rgba(255, 165, 77, .15);
+}
+
+.aa-input::placeholder,
+.aa-textarea::placeholder {
+  color: #bbb;
+}
+
+/* 전화번호 */
+.aa-phone {
+  display: flex;
+  gap: 10px;
+}
+
+.aa-phone-part {
+  text-align: center;
+}
+
+/* 셀렉트 (커스텀 화살표) */
+.aa-select-wrap {
+  position: relative;
+}
+
+.aa-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.aa-caret {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 30px;
+  color: #F39535;
+}
+
+/* 텍스트영역 */
+.aa-textarea {
+  resize: vertical;
+  min-height: 110px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* 동의 체크들 */
+.aa-agree {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: #444;
+}
+
+.aa-agree input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  background-color: #fff;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  /* ✅ 줄어들지 않게 */
+}
+
+.aa-agree input[type="checkbox"]:checked {
+  background-color: #F39535;
+  border-color: #F39535;
+}
+
+.aa-agree input[type="checkbox"]:checked::after {
+  content: "";
+  width: 3px;
+  height: 7px;
+  border: 1px solid #ffffff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* 제출 버튼 */
+.aa-submit {
+  width: 100%;
+  height: 48px;
+  margin: 30px auto 0;
+  border-radius: 999px;
+  border: 0;
+  background: #f39535;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: .02em;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(255, 165, 77, .35);
+  transition: transform .05s ease, filter .15s ease, box-shadow .15s ease;
+}
+
+.aa-submit:hover {
+  filter: brightness(0.98);
+  box-shadow: 0 8px 20px rgba(255, 165, 77, .4);
+}
+
+.aa-submit:active {
+  transform: translateY(1px);
+}
+
+.aa-form .aa-submit {
+  margin-top: 12px;
+}
+
+/* ===== 우측 카드 ===== */
+.aa-pet {
+  position: relative;
+}
+
+/* 카드 컨테이너 */
+.aa-pet-card {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  padding-bottom: 160px;
+  /* 여백 확보 */
+}
+
+/* 스크롤 고정 (JS가 변수로 left/width 제공) */
+.aa-pet-card.is-fixed {
+  position: fixed;
+  top: 80px;
+  /* JS의 TOP_GAP과 동일 */
+  left: var(--pc-left);
+  width: var(--pc-width);
+  z-index: 5;
+}
+
+/* 컬럼 바닥에서 정지 (부모 .aa-pet 기준) */
+.aa-pet-card.is-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+}
+
+.aa-pet-photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #000;
+  border-radius: 22px;
+  z-index: 1;
+}
+
+.aa-pet-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 이미지 아래 겹치는 흰 박스(항상 위) */
+.aa-pet-box {
+  position: absolute;
+  bottom: 50px;
+  width: 100%;
+  background: #fff;
+  border-radius: 22px;
+  box-sizing: border-box;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .18);
+  padding: 30px;
+  z-index: 2;
+  /* ✅ 박스를 위로 고정 */
+}
+
+.aa-pet-org {
+  font-size: 13px;
+  color: #666;
+  font-weight: 600;
+  margin: 0 0 2px;
+}
+
+.aa-pet-org-call {
+  font-size: 18px;
+  color: #333;
+  margin: 10px 10px 10px 0;
+}
+
+.aa-pet-meta {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.aa-meta-key {
+  color: #f39535;
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+.aa-meta-val {
+  color: #333;
+}
+
+/* 🔥 클릭(토글) 시: 사진을 최상단으로 */
+.aa-pet-card.photo-front .aa-pet-photo {
+  z-index: 4;
+  /* 사진이 박스보다 위 */
+  box-shadow: 0 22px 50px rgba(0, 0, 0, .22);
+}
+
+/* 클릭 시 박스는 뒤로 */
+.aa-pet-card.photo-front .aa-pet-box {
+  z-index: 1;
+}

@@ -1,0 +1,283 @@
+/* ======================
+   반응형
+   ====================== */
+
+@media(max-width: 1200px) {
+
+    .my-payment-item {
+        grid-template-columns: 120px 1fr;
+        /* 썸네일 축소 */
+        gap: 18px;
+    }
+
+    /* 구분선 시작점 재계산(120 + 18) */
+    .my-payment-item:not(:last-child)::after {
+        left: calc(120px + 18px);
+    }
+
+    .my-pay-info {
+        display: flex;
+        flex-direction: row;
+        /* 제목 + 3칸 */
+        gap: 18px;
+        align-items: end;
+    }
+
+    .my-pay-title {
+        font-size: 14px;
+        white-space: normal;
+        /* 제목 줄바꿈 허용 */
+    }
+
+
+
+}
+
+
+@media(max-width: 900px) {
+    .my-container {
+        padding-right: 20px;
+        grid-template-columns: 220px 1fr;
+        gap: 0;
+        box-sizing: border-box;
+    }
+
+    .my-left {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .my-boxs {
+        flex-direction: row;
+        text-align: center;
+    }
+
+    .my-box2 {
+        flex-direction: column;
+    }
+
+    .my-box2 div {
+        font-size: 15px;
+    }
+
+    .my-progress-video {
+        width: 140px;
+        height: 120px;
+        flex-basis: 140px;
+    }
+
+    .my-lecture-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .my-container {
+        grid-template-columns: 220px 1fr;
+        gap: 20px;
+        padding-right: 20px;
+    }
+
+
+}
+
+@media (max-width: 870px) {
+    .my-payment-item {
+        width: 80%;
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .my-payment-item:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        /* 가운데 기준점 */
+        transform: translateX(-50%);
+        /* 정확히 중앙 맞춤 */
+        height: 1px;
+        background: #ddd;
+    }
+
+    /* 2행 구조: 1행(제목) + 2행(날짜/가격/주문번호) */
+    .my-pay-info {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        /* 3칸 */
+        grid-template-rows: auto auto;
+        /* 제목행 + 정보행 */
+        gap: 8px 10px;
+        align-items: center;
+        justify-items: center;
+        width: 100%;
+    }
+
+    /* 제목: 첫 번째 행 전체 차지 */
+    .my-pay-title {
+        grid-column: 1 / -1;
+        font-size: 15px;
+        font-weight: 500;
+        white-space: nowrap;
+        padding: 10px 0;
+    }
+
+    /* 텍스트: 아래 행에 3칸으로 자동 분배 */
+    .my-pay-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        text-align: center;
+    }
+
+    .my-pay-text span:first-child {
+        font-size: 12px;
+        color: #999;
+    }
+
+    .my-pay-text span:last-child {
+        font-size: 14px;
+        color: #222;
+        font-weight: 500;
+    }
+
+    /* 가격만 강조 */
+    .my-pay-text:nth-of-type(2) span:last-child {
+        font-weight: 600;
+        font-size: 16px;
+        color: #000;
+    }
+}
+
+
+@media (min-width: 600px) and (max-width: 480px) {
+    .my-container {
+        padding-right: 20px;
+        grid-template-columns: 220px 1fr;
+        gap: 0;
+        box-sizing: border-box;
+    }
+
+    .my-left {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .my-boxs {
+        flex-direction: row;
+        text-align: center;
+    }
+
+    .my-box2 {
+        flex-direction: column;
+    }
+
+    .my-box2 div {
+        font-size: 15px;
+    }
+
+    .my-progress-video {
+        width: 140px;
+        height: 120px;
+        flex-basis: 140px;
+    }
+
+    .my-lecture-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* 모바일 (<=375) */
+@media (max-width: 480px) {
+    .my-container {
+        grid-template-columns: 1fr;
+        /* 한 줄짜리 그리드(세로 배치) */
+        gap: 20px;
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
+    .mobile-only {
+        display: block;
+    }
+
+    /* 데스크톱 sticky 해뒀다면 모바일에선 해제 권장 */
+    .my-left {
+        position: static;
+        top: auto;
+    }
+
+    .my-left-m .my-m-grid {
+        gap: 20px 24px;
+    }
+
+
+    .my-left-m .my-m-txt {
+        font-size: 12px;
+    }
+
+    .my-title {
+        font-size: 22px;
+    }
+
+    .my-boxs {
+        flex-direction: row;
+        gap: 8px;
+        padding: 20px 0;
+    }
+
+    .my-box .my-box-text {
+        font-size: 15px;
+    }
+
+    .my-box2 {
+        flex-direction: row;
+        gap: 10px
+    }
+
+    .my-box2 div {
+        padding: 10px;
+    }
+
+    .my-box2 span {
+        font-size: 12px;
+    }
+
+    .my-progress-body {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .my-progress-video {
+        width: 100%;
+        height: 140px;
+        flex-basis: auto;
+    }
+
+    .my-lecture-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .my-lecture-title {
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    .my-lecture-total {
+        font-size: 10px;
+    }
+
+    .my-pay-text {
+        font-size: 16px;
+
+    }
+
+}

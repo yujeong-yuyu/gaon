@@ -1,0 +1,63 @@
+/* =========================
+   반응형
+   ========================= */
+
+/* 태블릿 이하: 카드가 위, 폼이 아래로 내려오게 순서 변경 */
+@media (max-width: 768px) {
+  .aa-grid {
+    max-width: 500px;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "pet"
+      /* ✅ 오른쪽 영역(카드)을 위로 */
+      "form";
+    /* 폼이 아래 */
+    gap: 26px;
+  }
+
+  .aa-pet-card {
+    margin: 0 auto;
+    max-width: 320px;
+    position: static;
+    /* 모바일에선 자연스럽게 흐름 */
+    top: auto;
+    align-self: auto;
+  }
+
+  .aa-title {
+    margin-top: 4px;
+  }
+}
+
+/* 모바일 (<=375px) */
+@media (max-width: 375px) {
+  .aa-section {
+    padding: 36px 16px 60px;
+  }
+
+  .aa-title {
+    font-size: 22px;
+  }
+
+  .aa-phone {
+    gap: 8px;
+  }
+
+  .aa-input,
+  .aa-textarea,
+  .aa-select {
+    font-size: 15px;
+  }
+
+  .aa-pet-card {
+    max-width: 268px;
+  }
+
+  .aa-pet-box {
+    margin: -16px 14px 0;
+  }
+
+  .aa-submit {
+    width: 100%;
+  }
+}
