@@ -21,9 +21,9 @@
     "jsonwebtoken": "^9.0.2",
     "mongodb": "4",
     "mongoose": "^8.19.2",
-    "next": "15.5.5",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
+    "next": "^16.1.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
     "react-icons": "^5.5.0",
     "react-router-dom": "6"
   }
