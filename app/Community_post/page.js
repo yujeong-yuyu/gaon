@@ -1,6 +1,6 @@
-import CommunityPostClient from "./Community_post";
+import CommunityPostClient from "./CommunityPostClient";
 
 export default function Page({ searchParams }) {
-  const id = searchParams?.id ?? null; // /Community_post?id=...
+  const id = searchParams?.id ?? null;
   return <CommunityPostClient id={id} />;
 }
