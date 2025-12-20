@@ -1,14 +1,14 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Header2 from "@/components/Header2";
 import Footer2 from "@/components/Footer2";
 import styles from "@/styles/p-css/Community_post.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faTrash, faPen } from "@fortawesome/free-solid-svg-icons";
 
-export default function CommunityPost() {
+export default function CommunityPostClient({ id }) {
     const searchParams = useSearchParams();  // searchParams는 비동기적으로 사용해야 합니다.
     const router = useRouter();
 
@@ -51,7 +51,7 @@ export default function CommunityPost() {
     // 게시글 불러오기
     useEffect(() => {
         const fetchPostData = async () => {
-            const postId = searchParams.get('id');  // searchParams를 사용한 id 가져오기
+            const postId = id;  // searchParams를 사용한 id 가져오기
             if (!postId) return;
 
             try {
@@ -73,7 +73,7 @@ export default function CommunityPost() {
         };
 
         fetchPostData();
-    }, [searchParams, router]);  // searchParams가 변경될 때마다 실행
+    }, [id, router]);  // searchParams가 변경될 때마다 실행
 
     const { title, content, images, category, authorName } = postData;
     const getImageSrc = (img) => (img ? `/uploads/${img}` : null);
