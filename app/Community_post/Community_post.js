@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faTrash, faPen } from "@fortawesome/free-solid-svg-icons";
 
 export default function CommunityPostClient({ id }) {
-    const searchParams = useSearchParams();  // searchParams는 비동기적으로 사용해야 합니다.
+
     const router = useRouter();
 
     const [postData, setPostData] = useState({
