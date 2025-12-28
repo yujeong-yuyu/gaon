@@ -1,10 +1,10 @@
-// 'use client' 금지 (서버)
-import MembersClient from "./MembersClient";
+import { Suspense } from "react";
+import Members from "./MembersClient";
 
-export default async function Page({ searchParams }) {
-  // searchParams.role 값 처리
-  const isTeacher = (searchParams?.role ?? "") === "teacher";
-
-  // MembersClient에 props 전달
-  return <MembersClient isTeacher={isTeacher} />;
+export default function Page() {
+  return (
+    <Suspense fallback={<div />}>
+      <Members />
+    </Suspense>
+  );
 }
