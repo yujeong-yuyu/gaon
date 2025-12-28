@@ -40,7 +40,7 @@ export default function KakaoMap({ lat, lng }) {
     const script = document.createElement("script");
     script.id = scriptId;
     script.src =
-      "//dapi.kakao.com/v2/maps/sdk.js?appkey=0cb40f74316274b1a37120f24e09246f&autoload=false";
+      "//dapi.kakao.com/v2/maps/sdk.js?appkey=4ba957fbfdd2a83bcb87a83ef3e313bb&autoload=false";
     script.async = true;
     script.onload = loadMap;
     document.head.appendChild(script);
