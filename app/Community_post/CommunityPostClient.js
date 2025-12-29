@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams  } from "next/navigation";
 import Header2 from "@/components/Header2";
 import Footer2 from "@/components/Footer2";
 import styles from "@/styles/p-css/Community_post.module.css";
@@ -11,6 +11,7 @@ import { faHeart, faTrash, faPen } from "@fortawesome/free-solid-svg-icons";
 export default function CommunityPostClient({ id }) {
 
     const router = useRouter();
+    const searchParams = useSearchParams(); // ✅ 추가
 
     const [postData, setPostData] = useState({
         title: "",
@@ -29,6 +30,8 @@ export default function CommunityPostClient({ id }) {
     const contentRowRef = useRef(null);
     const [mainImageWidth, setMainImageWidth] = useState(0);
     const [contentHeight, setContentHeight] = useState(0);
+
+    
 
     // 로그인 사용자 정보 가져오기
     useEffect(() => {
@@ -50,6 +53,14 @@ export default function CommunityPostClient({ id }) {
 
     // 게시글 불러오기
     useEffect(() => {
+
+        const postId = id ?? searchParams.get("id"); // ✅ props 없으면 URL에서 읽기
+
+    if (!postId) {
+      console.error("postId is missing");
+      setLoading(false);              // ✅ 무한로딩 방지
+      return;
+    }
         const fetchPostData = async () => {
             const postId = id;  // searchParams를 사용한 id 가져오기
             if (!postId) return;
