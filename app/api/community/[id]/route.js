@@ -10,7 +10,10 @@ export const dynamic = "force-dynamic";
 
 export async function GET(req, { params }) {
   try {
-    const id = params?.id;
+    const id =
+        params?.id ||
+        req.nextUrl?.pathname?.split("/").pop() ||
+        new URL(req.url).pathname.split("/").pop();
     if (!id) return NextResponse.json({ ok: false, error: "id 필요" }, { status: 400 });
     if (!mongoose.Types.ObjectId.isValid(id)) {
       return NextResponse.json({ ok: false, error: "유효하지 않은 id" }, { status: 400 });
