@@ -100,6 +100,7 @@ export async function POST(req) {
         }
 
         const authorName =
+            payload.id ||              // ✅ 일반 로그인 id (가장 "아이디" 느낌)
             payload.displayName ||
             payload.nickname ||
             payload.name ||

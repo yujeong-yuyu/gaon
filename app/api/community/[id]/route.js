@@ -1,11 +1,10 @@
 import { NextResponse } from "next/server";
 import { dbConnect } from "@/app/api/_lib/db";
-import "@/app/api/_models/User";
 import Post from "@/app/api/_models/Post";
 import mongoose from "mongoose";
-
 import fs from "fs";
 import path from "path";
+import { getSessionTokenFromCookies, verifySession } from "@/app/api/_lib/auth";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -28,7 +27,10 @@ export async function GET(req, { params }) {
     if (!post) return NextResponse.json({ ok: false, error: "게시글 없음" }, { status: 404 });
 
     const authorId = post.authorId ? String(post.authorId) : (post.author ? String(post.author) : null);
-    const authorName = post.authorName || "익명";
+
+// ✅ fallback: 아이디처럼 보이게
+const fallbackId = authorId ? `user_${authorId.slice(-6)}` : "user_unknown";
+const authorName = post.authorName || fallbackId;
 
     return NextResponse.json({
       ok: true,
