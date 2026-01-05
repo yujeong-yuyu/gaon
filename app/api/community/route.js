@@ -1,7 +1,9 @@
 // app/api/community/route.js
 import { NextResponse } from "next/server";
 import { dbConnect } from "@/app/api/_lib/db";
+import "@/app/api/_models/User";
 import Post from "@/app/api/_models/Post";
+
 import { getSessionTokenFromCookies, verifySession } from "@/app/api/_lib/auth";
 import fs from "fs";
 import path from "path";
