@@ -32,7 +32,8 @@ export async function GET(_req, context) {
             post.author?.nickname ||
             post.author?.name ||
             post.author?.username ||
-            "익명";  // author가 비어 있으면 "익명"
+            post.authorName || // ✅ 스냅샷 필드 fallback
+            "익명";
         console.log("Author Name:", authorName); // authorName을 콘솔로 확인
 
         return NextResponse.json({
@@ -44,7 +45,10 @@ export async function GET(_req, context) {
                 images: Array.isArray(post.images) ? post.images : [],
                 category: post.category || "",
                 authorName,  // 작성자 이름
-                authorId: post.author?._id ? String(post.author._id) : null,
+                authorId:
+                    post.author?._id ? String(post.author._id)
+                    : post.author ? String(post.author)
+                    : null,
                 createdAt: post.createdAt,
             },
         });

@@ -57,7 +57,16 @@ export async function GET(req) {
             Post.countDocuments(filter),
         ]);
 
-        return NextResponse.json({ ok: true, posts, total }, { status: 200 });
+        const normalized = (posts || []).map((p) => ({
+            ...p,
+            _id: String(p._id),
+            authorId: p.author ? String(p.author) : null, // Post에 author가 있다면
+            createdAt: p.createdAt ? new Date(p.createdAt).toISOString() : null,
+            updatedAt: p.updatedAt ? new Date(p.updatedAt).toISOString() : null,
+        }));
+
+        return NextResponse.json({ ok: true, posts: normalized, total }, { status: 200 });
+
     } catch (e) {
         return NextResponse.json({ ok: false, error: String(e) }, { status: 500 });
     }
