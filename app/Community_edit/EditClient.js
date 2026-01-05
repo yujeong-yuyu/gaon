@@ -2,13 +2,15 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Header2 from "@/components/Header2";
 import Footer2 from "@/components/Footer2";
 import styles from "@/styles/p-css/Community_edit.module.css";
 
 export default function EditClient({ postId }) {
     const router = useRouter();
+    const searchParams = useSearchParams();
+    const realPostId = postId || searchParams.get("id"); // ✅ 강제 보정
 
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
@@ -18,11 +20,11 @@ export default function EditClient({ postId }) {
 
     // 기존 게시글 불러오기
     useEffect(() => {
-        if (!postId) return; // 새 글 모드로도 쓸 수 있게 가드
+        if (!realPostId) return; // 새 글 모드로도 쓸 수 있게 가드
 
         const fetchPost = async () => {
             try {
-                const res = await fetch(`/api/community/${postId}`, { cache: "no-store" });
+                const res = await fetch(`/api/community/${realPostId}`, { cache: "no-store" });
                 if (!res.ok) throw new Error("게시글 조회 실패");
                 const data = await res.json();
                 const post = data.post;
@@ -45,7 +47,7 @@ export default function EditClient({ postId }) {
             }
         };
         fetchPost();
-    }, [postId, router]);
+    }, [realPostId, router]);
 
     const getImageSrc = (img) => (img ? `/uploads/${img}` : null);
 
@@ -114,40 +116,46 @@ export default function EditClient({ postId }) {
             </div>
         ));
 
-    const handleSubmit = async () => {
-        try {
-            if (!postId) {
-                alert("잘못된 접근입니다. (id 없음)");
-                return;
-            }
+  const handleSubmit = async () => {
+  try {
+    if (!realPostId) {
+      alert("잘못된 접근입니다. (id 없음)");
+      return;
+    }
 
-            const formData = new FormData();
-            formData.append("title", title);
-            formData.append("content", content);
-            formData.append("category", category);
-            // 🔥 유지할 기존 파일명 (dataURL이 아닌 문자열만)
-            const keepExisting = images.filter(
-                (v) => typeof v === "string" && v && !String(v).startsWith("data:")
-            );
-            formData.append("keepExisting", JSON.stringify(keepExisting));
-            imageFiles.forEach((file) => file && formData.append("images", file));
+    console.log("edit id (before fetch):", realPostId); // ✅ 먼저 찍기
 
-            const res = await fetch(`/api/community/community_edit?id=${postId}`, {
-                method: "POST",
-                body: formData,
-                credentials: "include",
-            });
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("content", content);
+    formData.append("category", category);
 
-            const data = await res.json();
-            if (!res.ok) throw new Error(data?.error || "수정 실패");
+    const keepExisting = images.filter(
+      (v) => typeof v === "string" && v && !String(v).startsWith("data:")
+    );
+    formData.append("keepExisting", JSON.stringify(keepExisting));
+    imageFiles.forEach((file) => file && formData.append("images", file));
 
-            alert("게시글 수정 완료!");
-            router.push(`/Community_post?id=${postId}`);
-        } catch (err) {
-            console.error(err);
-            alert(err.message || "에러가 발생했습니다.");
-        }
-    };
+    const res = await fetch(`/api/community/community_edit?id=${realPostId}`, {
+      method: "POST",
+      body: formData,
+      credentials: "include",
+    });
+
+    const data = await res.json().catch(() => ({}));
+
+    console.log("edit response status:", res.status); // ✅ 핵심
+    console.log("edit response data:", data);         // ✅ 핵심
+
+    if (!res.ok) throw new Error(data?.error || "수정 실패");
+
+    alert("게시글 수정 완료!");
+    router.push(`/Community_post?id=${realPostId}`);
+  } catch (err) {
+    console.error(err);
+    alert(err.message || "에러가 발생했습니다.");
+  }
+};
 
     return (
         <>

@@ -62,15 +62,21 @@ export async function DELETE(req, { params }) {
       return NextResponse.json({ ok: false, error: "유효하지 않은 id" }, { status: 400 });
     }
 
-    const loginUserId = req.headers.get("x-user-id") || "";
+    // ✅ 세션 검증 (헤더 x-user-id 절대 믿지 말 것)
+    const token = await getSessionTokenFromCookies();
+    const payload = token ? await verifySession(token) : null;
+    if (!payload?.uid) {
+      return NextResponse.json({ ok: false, error: "로그인이 필요합니다." }, { status: 401 });
+    }
 
     await dbConnect();
     const doc = await Post.findById(id).lean();
     if (!doc) return NextResponse.json({ ok: false, error: "존재하지 않는 게시글" }, { status: 404 });
 
-   const owner = doc.authorId ? String(doc.authorId) : String(doc.author);
-    if (!loginUserId || owner !== String(loginUserId)) {
-    return NextResponse.json({ ok:false, error:"권한이 없습니다." }, { status: 403 });
+    // ✅ 작성자 체크 (authorId 우선)
+    const owner = doc.authorId ? String(doc.authorId) : String(doc.author);
+    if (owner !== String(payload.uid)) {
+      return NextResponse.json({ ok: false, error: "권한이 없습니다." }, { status: 403 });
     }
 
     const uploadDir = path.join(process.cwd(), "public", "uploads");

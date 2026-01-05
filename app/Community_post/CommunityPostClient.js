@@ -109,7 +109,7 @@ export default function CommunityPostClient({ id }) {
     try {
       const res = await fetch(`/api/community/${_id}`, {
         method: "DELETE",
-        headers: { "x-user-id": String(loginUserId || "") },
+       credentials: "include",
       });
       if (!res.ok) throw new Error("게시글 삭제 실패");
       alert("게시글이 삭제되었습니다.");
