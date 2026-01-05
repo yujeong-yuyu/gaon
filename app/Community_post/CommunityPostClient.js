@@ -27,7 +27,7 @@ export default function CommunityPostClient({ id }) {
         const data = await res.json();
         const u = data?.user;
 
-        setLoginUserId(u?.uid ?? u?.id ?? null);
+        setLoginUserId(u?.uid || null);
         const showName = u?.displayName || u?.nickname || u?.name || u?.username || u?.id || "사용자";
         setDisplayName(data?.ok ? showName : null);
       } catch {

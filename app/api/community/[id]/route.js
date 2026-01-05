@@ -4,6 +4,9 @@ import "@/app/api/_models/User";
 import Post from "@/app/api/_models/Post";
 import mongoose from "mongoose";
 
+import fs from "fs";
+import path from "path";
+
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
@@ -24,7 +27,7 @@ export async function GET(req, { params }) {
     const post = await Post.findById(id).lean();
     if (!post) return NextResponse.json({ ok: false, error: "게시글 없음" }, { status: 404 });
 
-    const authorId = post.author ? String(post.author) : (post.authorId ? String(post.authorId) : null);
+    const authorId = post.authorId ? String(post.authorId) : (post.author ? String(post.author) : null);
     const authorName = post.authorName || "익명";
 
     return NextResponse.json({
@@ -65,8 +68,9 @@ export async function DELETE(req, { params }) {
     const doc = await Post.findById(id).lean();
     if (!doc) return NextResponse.json({ ok: false, error: "존재하지 않는 게시글" }, { status: 404 });
 
-    if (!loginUserId || String(doc.author) !== String(loginUserId)) {
-      return NextResponse.json({ ok: false, error: "권한이 없습니다." }, { status: 403 });
+   const owner = doc.authorId ? String(doc.authorId) : String(doc.author);
+    if (!loginUserId || owner !== String(loginUserId)) {
+    return NextResponse.json({ ok:false, error:"권한이 없습니다." }, { status: 403 });
     }
 
     const uploadDir = path.join(process.cwd(), "public", "uploads");
