@@ -99,16 +99,23 @@ export async function POST(req) {
             saved.push(safeName);
         }
 
-       const doc = await Post.create({
-            author: payload.uid,        // 기존 유지(문자열 uid)
-            authorId: String(payload.uid), // ✅ 추가: 비교용으로 확정 저장
-            authorName: payload.displayName || payload.nickname || payload.name || payload.username || "사용자", // ✅ 추가
+        const authorName =
+            payload.displayName ||
+            payload.nickname ||
+            payload.name ||
+            payload.username ||
+            "사용자";
+
+        const doc = await Post.create({
+            author: payload.uid,
+            authorId: String(payload.uid),
+            authorName,
             title,
             content,
             category,
             images: saved,
             tags: [],
-        });
+            });
 
         return NextResponse.json({ ok: true, postId: String(doc._id) }, { status: 200 });
     } catch (e) {

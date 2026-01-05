@@ -1,3 +1,4 @@
+// Community_edit/EditClient.js
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -134,6 +135,7 @@ export default function EditClient({ postId }) {
             const res = await fetch(`/api/community/community_edit?id=${postId}`, {
                 method: "POST",
                 body: formData,
+                credentials: "include",
             });
 
             const data = await res.json();
